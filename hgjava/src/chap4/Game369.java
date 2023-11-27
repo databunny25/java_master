@@ -76,7 +76,10 @@ public class Game369 {
 		
 		
 		
-		
+		//깃허브 해보기
+		for(int i=0; i<10; i++) {
+			System.out.println("hhhh");
+			}
 		
 		
 		
