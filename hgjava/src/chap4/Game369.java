@@ -5,56 +5,56 @@ import java.util.Scanner;
 public class Game369 {
 
 	public static void main(String[] args) {
-		// 1~50 : 369°ÔÀÓ
-		// 3, 6, 9 °¹¼ö Ã¼Å© º¯¼ö
+		// 1~50 : 369ê²Œì„
+		// 3, 6, 9 ê°¯ìˆ˜ ì²´í¬ ë³€ìˆ˜
 		int cnt = 0;
-		// ¼ıÀÚ 1~50 ¹İº¹¹®
+		// ìˆ«ì 1~50 ë°˜ë³µë¬¸
 		for(int i=1; i<= 50; i++) {
-			cnt = 0; //´ÙÀ½ ¼ö¸¦ À§ÇÑ ÃÊ±âÈ­
-			if(i%10 ==3 || i%10 == 6 || i%10 == 9) cnt++; //ÀÏÀÇ ÀÚ¸®¿¡ 3,6,9 °¹¼ö Ã¼Å©
-			if(i/10 ==3 || i/10 == 6 || i/10 == 9) cnt++; //½ÊÀÇ ÀÚ¸®¿¡ 3,6,9 °¹¼ö Ã¼Å©
-			// °¹¼ö°¡ 0 -> ¼ıÀÚ, °¹¼ö°¡ 1 -> ¢¾, °¹¼ö°¡ 2 -> ¢¾¢¾
+			cnt = 0; //ë‹¤ìŒ ìˆ˜ë¥¼ ìœ„í•œ ì´ˆê¸°í™”
+			if(i%10 ==3 || i%10 == 6 || i%10 == 9) cnt++; //ì¼ì˜ ìë¦¬ì— 3,6,9 ê°¯ìˆ˜ ì²´í¬
+			if(i/10 ==3 || i/10 == 6 || i/10 == 9) cnt++; //ì‹­ì˜ ìë¦¬ì— 3,6,9 ê°¯ìˆ˜ ì²´í¬
+			// ê°¯ìˆ˜ê°€ 0 -> ìˆ«ì, ê°¯ìˆ˜ê°€ 1 -> â™¥, ê°¯ìˆ˜ê°€ 2 -> â™¥â™¥
 			switch(cnt) {
 			case 0 : System.out.print(i + "\t");break;
-			case 1 : System.out.print("¢¾\t");break;
-			case 2 : System.out.print("¢¾¢¾\t");break;
+			case 1 : System.out.print("â™¥\t");break;
+			case 2 : System.out.print("â™¥â™¥\t");break;
 			}
-			if(i%10 == 0) System.out.println(); //ÇÑ ÁÙ¿¡ 10°³¾¿ Ãâ·Â			
+			if(i%10 == 0) System.out.println(); //í•œ ì¤„ì— 10ê°œì”© ì¶œë ¥			
 		}				
-//		³»°¡ ÇÑ Æ²¸° ´ä ¤»¤»¤»¤»
+//		ë‚´ê°€ í•œ í‹€ë¦° ë‹µ ã…‹ã…‹ã…‹ã…‹
 //		for(int i = 1; i <= 50 ; i ++) {
 //			if((i % 10 == 3) || (i % 10 == 6) || (i % 10 == 9) ) {
-//				System.out.print("¢¾ ");
+//				System.out.print("â™¥ ");
 //			}else if((i / 10 == 3) || (i / 10 == 6) || (i / 10 == 9)) {
-//				System.out.print(" ¢¾");
+//				System.out.print(" â™¥");
 //			}else {
 //				System.out.print(" " + i);
 //			}//			
 //		}
 //		
-		//µ¿Àü ±³È¯
+		//ë™ì „ êµí™˜
 		
 		Scanner sc = new Scanner(System.in);
 		int money = sc.nextInt();
 		int rmoney = 0;
 				
 		
-		System.out.print("##±³È¯ÇÒ ±İ¾× : ");
+		System.out.print("##êµí™˜í•  ê¸ˆì•¡ : ");
 		
-		System.out.println("\n500¿ø Â¥¸® : " + money / 500);
+		System.out.println("\n500ì› ì§œë¦¬ : " + money / 500);
 		rmoney = money % 500;
 		
-		System.out.println("100¿ø Â¥¸® : " + rmoney / 100);
+		System.out.println("100ì› ì§œë¦¬ : " + rmoney / 100);
 		rmoney %= 100;
 		
-		System.out.println("50¿ø Â¥¸® : " + rmoney / 50);
+		System.out.println("50ì› ì§œë¦¬ : " + rmoney / 50);
 		rmoney %= 50;
 		
-		System.out.println("10¿ø Â¥¸® : " + rmoney / 10);
+		System.out.println("10ì› ì§œë¦¬ : " + rmoney / 10);
 		rmoney %= 10;
 		
-		System.out.println("±³È¯ ±İ¾× : " + (money - rmoney) );
-		System.out.println("³²Àº ±İ¾× : " + rmoney );
+		System.out.println("êµí™˜ ê¸ˆì•¡ : " + (money - rmoney) );
+		System.out.println("ë‚¨ì€ ê¸ˆì•¡ : " + rmoney );
 		
 		
 		
@@ -64,19 +64,19 @@ public class Game369 {
 		
 		
 		
-		// ¼ıÀÚ ¸ÂÃß±â 1~100 »çÀÌ¼ö
+		// ìˆ«ì ë§ì¶”ê¸° 1~100 ì‚¬ì´ìˆ˜
 		
-		// com ¼ıÀÚ ¹ß»ı Math.random()
+		// com ìˆ«ì ë°œìƒ Math.random()
 		
-		// ¹İº¹¹® ½ÇÇà
-			//¼ıÀÚ ÀÔ·Â ¹ŞÀ½
-			// ÀÔ·Â¼ıÀÚ == com -> ÃàÇÏÇÕ´Ï´Ù ¹İº¹¹® Å»Ãâ
-			// ÀÔ·Â¼ıÀÚ == com -> down ÇÏ¼¼¿ä
-			// ÀÔ·Â¼ıÀÚ == com -> up ÇÏ¼¼¿ä
+		// ë°˜ë³µë¬¸ ì‹¤í–‰
+			//ìˆ«ì ì…ë ¥ ë°›ìŒ
+			// ì…ë ¥ìˆ«ì == com -> ì¶•í•˜í•©ë‹ˆë‹¤ ë°˜ë³µë¬¸ íƒˆì¶œ
+			// ì…ë ¥ìˆ«ì == com -> down í•˜ì„¸ìš”
+			// ì…ë ¥ìˆ«ì == com -> up í•˜ì„¸ìš”
 		
 		
 		
-		//±êÇãºê ÇØº¸±â
+		//ê¹ƒí—ˆë¸Œ í•´ë³´ê¸°
 		for(int i=0; i<10; i++) {
 			System.out.println("hhhh");
 			}

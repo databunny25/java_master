@@ -3,8 +3,8 @@ package chap5;
 public class ArrayExe2 {
 
 	public static void main(String[] args) {
-		// Á¤¼ö¸¦ ´ãÀ» ¼ö ÀÖ´Â ¹è¿­À» »ı¼º(Å©±â´Â 10°³ÀÇ Á¤¼ö¸¦ ÀúÀå).
-		// intAry => 10~100 ÀúÀå.
+		// ì •ìˆ˜ë¥¼ ë‹´ì„ ìˆ˜ ìˆëŠ” ë°°ì—´ì„ ìƒì„±(í¬ê¸°ëŠ” 10ê°œì˜ ì •ìˆ˜ë¥¼ ì €ì¥).
+		// intAry => 10~100 ì €ì¥.
 		
 
 		int[] intAry = new int[10];
@@ -14,20 +14,20 @@ public class ArrayExe2 {
 		}
 		
 		
-		// Ãâ·Â. È®Àå for±¸¹®
-		int sum = 0; // 50º¸´Ù Å« ¼ö¸¦ ÀúÀå
+		// ì¶œë ¥. í™•ì¥ forêµ¬ë¬¸
+		int sum = 0; // 50ë³´ë‹¤ í° ìˆ˜ë¥¼ ì €ì¥
 		double avg = 0;
 		int count = 0;
 		for (int num : intAry ) {
 			System.out.println(num);
-			if (num > 50) { //50º¸´Ù Å«¼ö¸¦ sum¿¡ ´©ÀûÇÕ.
+			if (num > 50) { //50ë³´ë‹¤ í°ìˆ˜ë¥¼ sumì— ëˆ„ì í•©.
 				count ++;
 				sum += num;
 			}
 		}
 		avg = sum / count;
-		System.out.println("50º¸´Ù Å« ¼öÀÇ ÇÕ°è: " + sum);
-		System.out.println("50º¸´Ù Å« ¼öÀÇ Æò±Õ: " + avg);
+		System.out.println("50ë³´ë‹¤ í° ìˆ˜ì˜ í•©ê³„: " + sum);
+		System.out.println("50ë³´ë‹¤ í° ìˆ˜ì˜ í‰ê· : " + avg);
 		
 	
 		

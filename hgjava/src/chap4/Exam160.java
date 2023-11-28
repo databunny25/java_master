@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Exam160 {
 
 	public static void main(String[] args) {
-		// ¹®Á¦2 : 3ÀÇ ¹è¼ö ÇÕ
+		// ë¬¸ì œ2 : 3ì˜ ë°°ìˆ˜ í•©
 		
 		int i = 0;
 		int sumthree = 0;
@@ -19,10 +19,10 @@ public class Exam160 {
 			
 		}
 		
-		System.out.println("3ÀÇ ¹è¼öÀÇ ÃÑÇÕ: " + sumthree);
+		System.out.println("3ì˜ ë°°ìˆ˜ì˜ ì´í•©: " + sumthree);
 		
 		
-		//¹®Á¦ 3 
+		//ë¬¸ì œ 3 
 		
 		
 		while(true) {
@@ -33,14 +33,14 @@ public class Exam160 {
 				break;
 			}
 		}
-		System.out.println("Á¾·á");
+		System.out.println("ì¢…ë£Œ");
 		
 		
-		//¹®Á¦ 4
+		//ë¬¸ì œ 4
 		
-		//x : 1~10±îÁö ¹İº¹
-			// y 1~10±îÁö ¹İº¹
-				//4*x + 5*y = 60ÀÎ °ª Ã£±â
+		//x : 1~10ê¹Œì§€ ë°˜ë³µ
+			// y 1~10ê¹Œì§€ ë°˜ë³µ
+				//4*x + 5*y = 60ì¸ ê°’ ì°¾ê¸°
 		
 		int x = 1;
 		int y = 1;	
@@ -53,7 +53,7 @@ public class Exam160 {
 			}
 		}
 		
-		//¹®Á¦ 5
+		//ë¬¸ì œ 5
 		
 		for( int s = 1 ; s <=4 ; s++) {
 			for( int j = 1 ; j <= s ; j ++) {
@@ -63,9 +63,9 @@ public class Exam160 {
 		}
 		
 		
-		//¹®Á¦ 6
+		//ë¬¸ì œ 6
 		
-		//¹®Á¦ 7
+		//ë¬¸ì œ 7
 		
 		boolean run = true;
 		int balance = 0;
@@ -74,30 +74,30 @@ public class Exam160 {
 		
 		while(run) {
 			System.out.println("----------------------------------");
-			System.out.println("1. ¿¹±İ | 2. Ãâ±İ | 3. ÀÜ°í | 4. Á¾·á");
+			System.out.println("1. ì˜ˆê¸ˆ | 2. ì¶œê¸ˆ | 3. ì”ê³  | 4. ì¢…ë£Œ");
 			System.out.println("----------------------------------");
-			System.out.print("¼±ÅÃ> ");
+			System.out.print("ì„ íƒ> ");
 			String num = sc.nextLine();
 			
 			switch(num) {
 			case "1" : 
-				System.out.print("¿¹±İ¾×>");
+				System.out.print("ì˜ˆê¸ˆì•¡>");
 				balance += Integer.parseInt(sc.nextLine());		
 				break;
 			case "2" : 
-				System.out.print("Ãâ±İ¾×>");
+				System.out.print("ì¶œê¸ˆì•¡>");
 				int money = Integer.parseInt(sc.nextLine());
 				if( money <= balance) {
 				balance -= money;		
 				
 				}else {
-					System.out.println("ÀÜ¾×ÀÌ ºÎÁ·ÇÕ´Ï´Ù");
+					System.out.println("ì”ì•¡ì´ ë¶€ì¡±í•©ë‹ˆë‹¤");
 					
 				}
 				break;
 			case "3" : 
-				System.out.print("ÀÜ°í>");
-				System.out.println("ÀÜ¾×Àº "+ balance + "¿ø ÀÔ´Ï´Ù");
+				System.out.print("ì”ê³ >");
+				System.out.println("ì”ì•¡ì€ "+ balance + "ì› ì…ë‹ˆë‹¤");
 				break;
 			default : 
 				run = false;
@@ -106,12 +106,12 @@ public class Exam160 {
 			
 		}
 		
-		System.out.println("ÇÁ·Î±×·¥ Á¾·á");
+		System.out.println("í”„ë¡œê·¸ë¨ ì¢…ë£Œ");
 		
 		
 		
 		
-//		ÇØ¼³
+//		í•´ì„¤
 //		boolean run = true;
 //		int balance = 0;
 //		Scanner sc = new Scanner(System.in);
@@ -120,31 +120,31 @@ public class Exam160 {
 //		
 //		while(run) {
 //			System.out.println("----------------------------------");
-//			System.out.println("1. ¿¹±İ | 2. Ãâ±İ | 3. ÀÜ°í | 4. Á¾·á");
+//			System.out.println("1. ì˜ˆê¸ˆ | 2. ì¶œê¸ˆ | 3. ì”ê³  | 4. ì¢…ë£Œ");
 //			System.out.println("----------------------------------");
-//			System.out.print("¼±ÅÃ> ");
+//			System.out.print("ì„ íƒ> ");
 //			int sNum = sc.nextInt();
 //			
 //			switch(sNum) {
 //			case 1 :
-//				System.out.println("¿¹±İ¾× > ");
+//				System.out.println("ì˜ˆê¸ˆì•¡ > ");
 //				money = sc.nextInt();
 //				balance += money;
 //				break;
 //			case 2 :
-//				System.out.println("Ãâ±İ¾× > ");
+//				System.out.println("ì¶œê¸ˆì•¡ > ");
 //				money = sc.nextInt();
 //				if(money > balance) {
-//					System.out.println("ÀÜ°íºÎÁ·");
+//					System.out.println("ì”ê³ ë¶€ì¡±");
 //				}else {
 //					balance += money;					
 //				}
 //				break;
 //			case 3 :
-//				System.out.println("ÀÜ°í > " + balance);
+//				System.out.println("ì”ê³  > " + balance);
 //				break;
 //			case 4 :
-//				System.out.println("ÇÁ·Î±×·¥ Á¾·á");
+//				System.out.println("í”„ë¡œê·¸ë¨ ì¢…ë£Œ");
 //				run = false;
 //			}
 //		

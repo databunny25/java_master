@@ -9,7 +9,7 @@ public class ArrayExe1 {
 		for(int i=0; i < ary.length ; i++) {
 			sum = sum + ary[1];
 		}
-		System.out.println("ÇÕ°è´Â " + sum + "¹è°íÆÄ~~~~ ÀÔ´Ï´Ù");
+		System.out.println("í•©ê³„ëŠ” " + sum + "ë°°ê³ íŒŒ~~~~ ìž…ë‹ˆë‹¤");
 		
 		
 		int[] intAry = new int[5];
@@ -18,8 +18,8 @@ public class ArrayExe1 {
 		System.out.println(heights[0]);
 		
 		String[] names = new String[10];
-		names[0] = "È«±æµ¿";
-		names[1] = "±è±æµ¿";
+		names[0] = "í™ê¸¸ë™";
+		names[1] = "ê¹€ê¸¸ë™";
 		System.out.println(names[0]);
 		System.out.println(names[2]);
 	}

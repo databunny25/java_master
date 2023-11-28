@@ -16,25 +16,25 @@ public class StudentApp {
 		String maxName = null;
 		
 		
-		// 1. ÇÐ»ý¼ö 2. Á¡¼öÀÔ·Â 3. ¸ñ·ÏÃâ·Â 4. ºÐ¼®(ÃÖ°íÁ¡¼ö, Æò±Õ) 5. Á¾·á
+		// 1. í•™ìƒìˆ˜ 2. ì ìˆ˜ìž…ë ¥ 3. ëª©ë¡ì¶œë ¥ 4. ë¶„ì„(ìµœê³ ì ìˆ˜, í‰ê· ) 5. ì¢…ë£Œ
 		boolean run = true;
 		while(run) {
-			System.out.println("1. ÇÐ»ý¼ö 2. Á¡¼öÀÔ·Â 3. ¸ñ·ÏÃâ·Â 4. ºÐ¼®(ÃÖ°íÁ¡¼ö, Æò±Õ) 5. Á¾·á");
-			int menu = scn.nextInt(); // Enter Àü±îÁö Ã³¸®ÇÏ°í ³Ñ¾î°¡¹ö¸®´Ï±î
-			scn.nextLine(); //Ãß°¡ÇØ¼­ Enter Ã³¸®ÇØÁÜ (?????????)
+			System.out.println("1. í•™ìƒìˆ˜ 2. ì ìˆ˜ìž…ë ¥ 3. ëª©ë¡ì¶œë ¥ 4. ë¶„ì„(ìµœê³ ì ìˆ˜, í‰ê· ) 5. ì¢…ë£Œ");
+			int menu = scn.nextInt(); // Enter ì „ê¹Œì§€ ì²˜ë¦¬í•˜ê³  ë„˜ì–´ê°€ë²„ë¦¬ë‹ˆê¹Œ
+			scn.nextLine(); //ì¶”ê°€í•´ì„œ Enter ì²˜ë¦¬í•´ì¤Œ (?????????)
 			
 			
 			switch(menu) {
 			
 			case 1:
-				System.out.println("ÇÐ»ý¼öÀÔ·Â>>");
+				System.out.println("í•™ìƒìˆ˜ìž…ë ¥>>");
 				studentNum = scn.nextInt();
 				scores = new int[studentNum];
 				names = new String[studentNum];
 				break;
 			case 2:
-				System.out.println("Á¡¼öÀÔ·Â>>");
-				//for ¹Ýº¹¹®
+				System.out.println("ì ìˆ˜ìž…ë ¥>>");
+				//for ë°˜ë³µë¬¸
 				for(int i=0; i < scores.length; i++) {
 					System.out.println("names[" + i + "]>>");
 					names[i] = scn.nextLine();
@@ -44,14 +44,14 @@ public class StudentApp {
 				}
 				break;
 			case 3:
-				System.out.println("¸ñ·ÏÃâ·Â>>");
+				System.out.println("ëª©ë¡ì¶œë ¥>>");
 				for(int i=0; i < scores.length; i++) {
-					System.out.println("ÀÌ¸§Àº " + names[i] + ", Á¡¼ö´Â " + scores[i]);
+					System.out.println("ì´ë¦„ì€ " + names[i] + ", ì ìˆ˜ëŠ” " + scores[i]);
 					
 				}
 				break;
 			case 4:
-				System.out.println("ºÐ¼®>>");
+				System.out.println("ë¶„ì„>>");
 				//for(int num : scores) {
 				for(int i = 0; i < scores.length; i++) {
 					sum += scores[i];
@@ -61,14 +61,14 @@ public class StudentApp {
 					}			
 					
 				}
-				avg = sum * 1.0 / scores.length; //sum°ú scores.length µÑ ´Ù intÀÌ¹Ç·Î ÇÏ³ª¶óµµ ½Ç¼ö·Î ¹Ù²ãÁÖ±â À§ÇØ *1.0À» ÇØÁØ´Ù!!!
+				avg = sum * 1.0 / scores.length; //sumê³¼ scores.length ë‘˜ ë‹¤ intì´ë¯€ë¡œ í•˜ë‚˜ë¼ë„ ì‹¤ìˆ˜ë¡œ ë°”ê¿”ì£¼ê¸° ìœ„í•´ *1.0ì„ í•´ì¤€ë‹¤!!!
 				
 				
 				
-				System.out.println("ÃÖ°íÁ¡¼ö : " + maxName+ "ÀÇ " + maxScore + ", Æò±Õ : " + avg);
+				System.out.println("ìµœê³ ì ìˆ˜ : " + maxName+ "ì˜ " + maxScore + ", í‰ê·  : " + avg);
 				break;
 			case 5:
-				System.out.println("Á¾·á>>");
+				System.out.println("ì¢…ë£Œ>>");
 				run = false;
 				break;
 			} // end of switch.
@@ -77,3 +77,4 @@ public class StudentApp {
 	}
 
 }
+

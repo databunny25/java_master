@@ -16,20 +16,20 @@ public class Hello {
 		System.out.println(z);
 		System.out.println("y = " + y);
 		
-		//º¯¼öÀÇ °ª ±³È¯
+		//ë³€ìˆ˜ì˜ ê°’ êµí™˜
 		x = 3;
 		y = 10;
 		
-		//°ª ±³È¯
+		//ê°’ êµí™˜
 		int temp = x;
 		x = y;
 		y = temp;
 		
-		//Ãâ·Â
+		//ì¶œë ¥
 		System.out.println("x = " + x + ", y = " + y);
 		
-		// ±âº» Å¸ÀÔ
-		// Å©±â¼ø¼­ byte < short < char(À½¼öÇ¥Çö ¾ÈµÊ) < int < long
+		// ê¸°ë³¸ íƒ€ì…
+		// í¬ê¸°ìˆœì„œ byte < short < char(ìŒìˆ˜í‘œí˜„ ì•ˆë¨) < int < long
 		
 		char charData = 'A';
 		int intData = charData;
@@ -38,9 +38,9 @@ public class Hello {
 		
 		
 		char c1= 'a';
-		int c2= c1+ 2; //ÀÚµ¿Å¸ÀÔ º¯È¯
-		char c3= (char)c2; //°­Á¦ Å¸ÀÔ º¯È¯
-		System.out.printf("c2°ªÀº : %10d, c3°ªÀº : %10s \n", c2, c3);
+		int c2= c1+ 2; //ìë™íƒ€ì… ë³€í™˜
+		char c3= (char)c2; //ê°•ì œ íƒ€ì… ë³€í™˜
+		System.out.printf("c2ê°’ì€ : %10d, c3ê°’ì€ : %10s \n", c2, c3);
 		
 		x = 5;
 		y = 2;
@@ -61,8 +61,8 @@ public class Hello {
 		System.out.println(result3);
 		
 		
-		//Ç¥ÁØÀÔ·Â : Å°º¸µå => System.in.read()
-		//ÇÑ±ÛÀÚ¸¸ ÀĞ¾îµéÀÓ
+		//í‘œì¤€ì…ë ¥ : í‚¤ë³´ë“œ => System.in.read()
+		//í•œê¸€ìë§Œ ì½ì–´ë“¤ì„
 		
 //		int keyCode;
 //		while(true) {
@@ -74,24 +74,24 @@ public class Hello {
 //		}
 //		
 //		
-//		System.out.println("Á¾·á");
+//		System.out.println("ì¢…ë£Œ");
 		
-		//¹®ÀÚ¿­ ÀÔ·Â -> Scanner Å¬·¡½º -> °´Ã¼¸¦ »ı¼ºÇØ¼­ »ç¿ë
+		//ë¬¸ìì—´ ì…ë ¥ -> Scanner í´ë˜ìŠ¤ -> ê°ì²´ë¥¼ ìƒì„±í•´ì„œ ì‚¬ìš©
 		String scinput;
 		Scanner sc = new Scanner(System.in);
 		while(true) {
-			System.out.print("ÀÌ¸§ ÀÔ·Â :");
+			System.out.print("ì´ë¦„ ì…ë ¥ :");
 			
 			scinput = sc.nextLine();
 			
 			if(scinput.equals("q")) {
 				break;
 			}
-			System.out.println("³» ÀÌ¸§Àº " + scinput);
+			System.out.println("ë‚´ ì´ë¦„ì€ " + scinput);
 		}
-		System.out.println("Á¾·á");
+		System.out.println("ì¢…ë£Œ");
 		
-		System.out.print("¼ö ÀÔ·Â : ");
+		System.out.print("ìˆ˜ ì…ë ¥ : ");
 		scinput = sc.nextLine();
 		System.out.println(Integer.parseInt(scinput) + 10);
 		
