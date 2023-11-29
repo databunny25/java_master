@@ -28,8 +28,7 @@ public class BoardApp {
 				String date = scn.nextLine();
 				
 				Board boa = new Board(no, title, user, contents, date);
-				///  이 부분부터 시작~~~~ if ()
-				
+				//여기서부터 다시
 			}
 		}
 		

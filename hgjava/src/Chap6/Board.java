@@ -20,7 +20,7 @@ public class Board {
 			this.contents = contents;
 			this.date = date;
 	}
-
+	
 	
 	//기능 (메소드)
 	
