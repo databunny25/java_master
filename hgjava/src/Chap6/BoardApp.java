@@ -28,7 +28,7 @@ public class BoardApp {
 				String date = scn.nextLine();
 				
 				Board boa = new Board(no, title, user, contents, date);
-				if ()
+				// 깃허브에서 바꿈~~ if ()
 				
 			}
 		}
