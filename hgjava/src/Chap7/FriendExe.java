@@ -23,6 +23,13 @@ public class FriendExe {
 	public Friend[] searchFriend(String name) {
 		//반환유형이 정해져있음.
 		Friend[] result = new Friend[10];
+		int num = 0;
+		for(int i = 0; i < storage.length ; i++) {
+			if(storage[i] != null && storage[i].getName().equals(name){
+				result[num++] = storage[i];
+			}
+		}
+		
 		
 		return result;
 	}
