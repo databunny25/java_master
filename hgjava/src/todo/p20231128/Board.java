@@ -3,8 +3,14 @@ package todo.p20231128;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import lombok.Data;
+
+@Data
+
+
 //게시판(게시글번호/제목/작성자/내용/작성일시)
 public class Board {
+	// Board 클래스 : 주로 데이터 한건한건을 담아두기 위한 용도, 필드의 값을 채워넣거나 가져오거나~
 	// 속성(필드)
 	private int no;
 	private String title;
@@ -31,10 +37,8 @@ public class Board {
 	}
 	
 	public Board(int no, String title, String user, String contents, String date) {
-			this.no = no;
-			this.title = title;
-			this.user = user;
-			this.contents = contents;
+//			this(); //기본생성자.
+			this(no, title, user, contents);
 			this.date = date;
 	}
 	
@@ -52,11 +56,11 @@ public class Board {
 //		return false;
 //	}
 	
-	String showInfo() {
+	public String showInfo() {
 		return no + " " + title + " " + user + " " + date;
 	}
 	
-	String showDetailInfo() {
+	public String showDetailInfo() {
 //		번호 : 1 / 제목: 자바게시판입니다
 //		작성자: user01
 //		내용: 오늘은 숙제로 자바게시판을 만들어봅시다.

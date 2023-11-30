@@ -4,7 +4,7 @@ package Chap6;
 
 public class StudentExe {
 	// 배열: 
-	private Student[] students;
+	Student[] students;
 	
 	// 생성자
 	StudentExe(){
