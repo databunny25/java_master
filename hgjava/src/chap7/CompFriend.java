@@ -1,4 +1,4 @@
-package Chap7;
+package chap7;
 
 // Friend상속 + 회사, 부서
 public class CompFriend extends Friend {

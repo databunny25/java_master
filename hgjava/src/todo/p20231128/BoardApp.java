@@ -9,22 +9,19 @@ import java.util.Scanner;
 public class BoardApp {
 	private Scanner scn = new Scanner(System.in);
 	private String id = null;
-	
-	
+
 	// 싱글톤 방식의 인스턴스 생성
 	private static BoardApp instance = new BoardApp();
-	
-	//생성자 : BoardApp은 여러개 필요없으니까 한개만 만들도록 private 붙여서 여기 생성자 만들어줌(싱글톤)
+
+	// 생성자 : BoardApp은 여러개 필요없으니까 한개만 만들도록 private 붙여서 여기 생성자 만들어줌(싱글톤)
 	private BoardApp() {
-		
+
 	}
-	
+
 	public static BoardApp getInstance() {
 		return instance;
 	}
-	
-	
-	
+
 	public void boardAdd() {
 		System.out.println("게시글번호 입력>>");
 //	int no = Integer.parseInt(scn.nextLine());
@@ -60,16 +57,26 @@ public class BoardApp {
 	} // end of boardList
 
 	private void getBoard() {
-		System.out.println("글번호 입력>>>");
-		int recallNo = Integer.parseInt(scn.nextLine());
+
+		int recallNo = 0;
+		while (true) {
+			System.out.println("글번호 입력>>>");
+			try {
+				recallNo = Integer.parseInt(scn.nextLine());
+				break;
+			} catch (NumberFormatException e) {
+				System.out.println("글 번호를 잘못 선택했습니다.");
+			}
+		}
+
 		Board result = BoardExe.getBoard(recallNo);
 		if (result != null) {
 			System.out.println(result.showDetailInfo());
 		} else {
 			System.out.println("조회된 내용이 없습니다.");
 		}
-	}//end of getBoard
-	
+	}// end of getBoard
+
 	private void boardEdit() {
 		System.out.println("수정할 글번호 입력>>>");
 		int recallNo = Integer.parseInt(scn.nextLine());
@@ -87,8 +94,8 @@ public class BoardApp {
 		} else {
 			System.out.println("처리 실패");
 		}
-	}//end of boardEdit
-	
+	}// end of boardEdit
+
 	private void boardDel() {
 		System.out.println("삭제할 글번호 입력>>>");
 		int recallNo = Integer.parseInt(scn.nextLine());
@@ -103,16 +110,14 @@ public class BoardApp {
 		} else {
 			System.out.println("삭제 실패");
 		}
-	}//end of baordDel
+	}// end of baordDel
 
 //	static BoardExe exe = new BoardExe();
 //	데이터마다 다른 정보를 담을 필요가 없는 클래스는 static 멤버로 선언
 
 	public void start() {
 
-	
 		boolean run = true;
-		
 
 		UserExe uexe = new UserExe();
 
@@ -137,7 +142,14 @@ public class BoardApp {
 		while (run) {
 			System.out.println(
 					"==================================\n1.등록 2.목록 3.상세조회 4.수정 5.삭제 6.종료\n==================================");
-			int menu = Integer.parseInt(scn.nextLine());
+
+			int menu = 0;
+			try {
+				menu = Integer.parseInt(scn.nextLine());
+			} catch (NumberFormatException e) {
+				System.out.println("정확한 메뉴를 선택하세요");
+				continue;
+			}
 			// 게시글번호/제목/작성자/내용/작성일시
 			switch (menu) {
 			case 1: // 글등록
@@ -155,12 +167,12 @@ public class BoardApp {
 				break;
 			case 4: // 수정
 				boardEdit();
-				
+
 				break;
 
 			case 5: // 삭제
 				boardDel();
-				
+
 				break;
 			case 6:
 				System.out.println("프로그램을 종료합니다.");

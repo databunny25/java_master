@@ -1,4 +1,4 @@
-package Chap7;
+package chap7;
 
 public class FriendExe {
 	Friend[] storage = new Friend[10];
@@ -25,7 +25,7 @@ public class FriendExe {
 		Friend[] result = new Friend[10];
 		int num = 0;
 		for(int i = 0; i < storage.length ; i++) {
-			if(storage[i] != null && storage[i].getName().equals(name){
+			if(storage[i] != null && storage[i].getName().equals(name)){
 				result[num++] = storage[i];
 			}
 		}
@@ -36,6 +36,11 @@ public class FriendExe {
 	
 	//결과값이 null여부로 체크(O)
 	public Friend searchPhone(String phone) {
+		for(int i = 0; i < storage.length ; i++) {
+			if(storage[i] != null && storage[i].getPhone().equals(phone)) {
+				return storage[i];
+			}
+		}
 		return null;
 	}
 }

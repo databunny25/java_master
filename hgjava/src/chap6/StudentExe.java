@@ -1,4 +1,4 @@
-package Chap6;
+package chap6;
 // 저장공간 : 배열
 // 추가, 수정, 삭제, 목록, 단건조회
 

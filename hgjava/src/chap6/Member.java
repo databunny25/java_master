@@ -1,4 +1,4 @@
-package Chap6;
+package chap6;
 // 회원관리 앱
 // 회원번호, 회원이름, 연락처, 성별
 // public <-> private

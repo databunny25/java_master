@@ -1,4 +1,4 @@
-package Chap7;
+package chap7;
 
 
 //부모: 이름, 연락처, showInfo()

@@ -1,4 +1,4 @@
-package Chap6;
+package chap6;
 
 public class MainExe {
 // 이 클래스는 삭제해도 된다 이미 가져다 씀 연습한거임~ todo.p20231128에 Main새로 만들었음
