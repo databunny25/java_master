@@ -21,5 +21,5 @@ public class ListExe2 {
 		for(Member mem:members) {
 			System.out.println(mem);
 		}
-	}
+	}//end of main 집에서 오류나서 잠시 주석처리
 }
