@@ -33,21 +33,28 @@ public class StudentApp {
 				System.out.println("저장되었습니다");				
 				break;
 			case 2://목록보기
-				for(int i=0; i<students.size(); i++) {
-					System.out.println(students.get(i));
-				}
+				for(Student stu:students) {
+					System.out.println(stu);
+				}				
 				break;
-			case 3://단건조회
-				System.out.println("조회할 학생번호 입력>>>>");
-				studentNumber = scn.nextLine();
-				for(int i= 0; i <students.size(); i++) {
-					if(students.get(i).getStudentNumber().equals(studentNumber)) {
-						
-					}
-				}
-				break;
-			case 4://번호입력후 영어, 수학 수정
-				break;
+//			case 3://단건조회
+//				System.out.println("조회할 학생번호 입력>>>>");
+//				studentNumber = scn.nextLine();
+//				for(int i= 0; i <students.size(); i++) {
+//					if(students.get(i).getStudentNumber().equals(studentNumber)) {
+//						
+//					}
+//				}
+//				break;
+//			case 4://번호입력후 영어, 수학 수정
+//				System.out.println("수정할 학생번호 입력>>>>");
+//				studentNumber = scn.nextLine();
+//				for(int i= 0; i <students.size(); i++) {
+//					if(students.get(i).getStudentNumber().equals(studentNumber)) {
+//						
+//					}
+//				}
+//				break;
 			case 5://이름 입력 후 삭제(null)로 바꿈
 				break;
 			case 6:
