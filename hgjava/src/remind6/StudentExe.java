@@ -33,7 +33,7 @@ public class StudentExe {
 	//단건조회
 	Student getStudent(String no) {
 		for(int i=0 ; i < students.length ; i++) {
-			if(students[i] != null && students[i].getNo().equals(no)) {
+			if(students[i] != null && students[i].getStudentNumber().equals(no)) {
 				return students[i];
 			}
 		}
@@ -43,9 +43,9 @@ public class StudentExe {
 	//수정
 	boolean modifyStudent(String no, int eng, int mat){
 		for(int i=0; i < students.length; i++) {
-			if(students[i] != null && students[i].getNo().equals(no)) {
-				students[i].setEng(eng);
-				students[i].setMat(mat);
+			if(students[i] != null && students[i].getStudentNumber().equals(no)) {
+				students[i].setEnglishScore(eng);
+				students[i].setMathmaticScore(mat);
 				return true;
 			}
 		}
@@ -55,7 +55,7 @@ public class StudentExe {
 	//삭제
 	boolean removeStudent(String name) {
 		for(int i=0; i < students.length; i++) {
-			if(students[i] != null && students[i].getName().equals(name)) {
+			if(students[i] != null && students[i].getStudentName().equals(name)) {
 				students[i] = null;
 				return true;
 			}

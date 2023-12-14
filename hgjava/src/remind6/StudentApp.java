@@ -12,6 +12,7 @@ public class StudentApp {
 		
 		Scanner scn = new Scanner(System.in);
 		StudentExe exe = new StudentExe();
+		StudentDAO dao = new StudentDAO();
 		
 		while(run) {
 			System.out.println("1.등록 2.목록 3.단건조회 4.수정 5.삭제 6.종료");
@@ -36,12 +37,11 @@ public class StudentApp {
 //						break;
 //					}
 //				} StudentExe 이용할거니까 이건 주석처리~
-				if (exe.addStudent(std)) {
+				if (dao.addStudent(std)) {
 					System.out.println("저장되었습니다.");
 				}else{
 					System.out.println("저장 중 오류");
-				}
-				
+				}			
 				
 				
 				System.out.println("저장되었습니다.");				
@@ -55,11 +55,18 @@ public class StudentApp {
 				
 				//밑에꺼 이렇게 쓸수도 있다~ Student[] stdAry = exe.getStudentList();
 				//	for ( Student stdnt : stdAry) {
-				for(Student stdnt : exe.getStudentList()) {
+//				for(Student stdnt : exe.getStudentList()) {
+//					if(stdnt != null) {
+//						stdnt.showInfo();
+//					}
+//				}; // Student[] (Student라는 배열타입을 반환!)
+				
+				Student[] stdAry = dao.getStudentList();
+				for (Student stdnt : stdAry) {
 					if(stdnt != null) {
 						stdnt.showInfo();
 					}
-				}; // Student[] (Student라는 배열타입을 반환!)
+				}
 				
 				
 				break;								
@@ -72,7 +79,7 @@ public class StudentApp {
 //					}
 //				}
 				
-				Student stnt = exe.getStudent(no);
+				Student stnt = dao.getStudent(no);
 				if(stnt != null) {
 					stnt.showInfo();
 				}else {
@@ -90,7 +97,7 @@ public class StudentApp {
 						mat = Integer.parseInt(scn.nextLine());
 						
 						
-				if(exe.modifyStudent(no, eng, mat)) {
+				if(dao.modifyStudent(no, eng, mat)) {
 					System.out.println("수정 완료");
 				}else {
 					System.out.println("수정 실패");
@@ -101,7 +108,7 @@ public class StudentApp {
 			case 5: //이름 입력 후 삭제(null)로 바꿈
 				System.out.println("조회할 학생이름 입력>>");
 				name = scn.nextLine();
-				if(exe.removeStudent(name)) {
+				if(dao.removeStudent(name)) {
 					System.out.println("삭제 완료");
 				}else {
 					System.out.println("삭제 실패");

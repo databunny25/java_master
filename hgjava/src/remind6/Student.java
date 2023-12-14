@@ -8,67 +8,69 @@ package remind6;
 
 public class Student {
 	// 속성(필드)
-	private String no;
-	private String name;
-	private int eng;
-	private int mat;
+	private String studentNumber; // 오라클에서...Student_Number 할거임 자바에서도 바꾸자!
+	private String studentName;
+	private int englishScore;
+	private int mathmaticScore;
 	
 	//생성자
 	Student(){
 		
 	}
 
-	public Student(String no, String name, int eng, int mat) {
-		
-		this.no = no;
-		this.name = name;
-		this.eng = eng;
-		this.mat = mat;
+	public Student(String studentNumber, String studentName, int englishScore, int mathmaticScore) {		
+		this.studentNumber = studentNumber;
+		this.studentName = studentName;
+		this.englishScore = englishScore;
+		this.mathmaticScore = mathmaticScore;
 	}
 	
 	//기능 (메소드)
 	void showInfo() {
-		System.out.println("학생 이름은 " + name + ", 영어 점수는 " + eng + ", 수학 점수는 " + mat + "입니다.");
+		System.out.println("학생 이름은 " + studentName + ", 영어 점수는 " + englishScore + ", 수학 점수는 " + mathmaticScore + "입니다.");
 	}
 
+	
 	//setter
-
-	public void setNo(String no) {
-		this.no = no;
+	public void setStudentNumber(String studentNumber) {
+		this.studentNumber = studentNumber;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
 	}
 
-	public void setEng(int eng) {
-		this.eng = eng;
+	public void setEnglishScore(int englishScore) {
+		this.englishScore = englishScore;
 	}
 
-	public void setMat(int mat) {
-		this.mat = mat;
+	public void setMathmaticScore(int mathmaticScore) {
+		this.mathmaticScore = mathmaticScore;
 	}
+
+	
+	//getter
+	public String getStudentNumber() {
+		return studentNumber;
+	}
+
+	public String getStudentName() {
+		return studentName;
+	}
+
+	public int getEnglishScore() {
+		return englishScore;
+	}
+
+	public int getMathmaticScore() {
+		return mathmaticScore;
+	}
+
+	
 
 
 	
 	//getter
-	
-	String getNo() {
-		return no;
-	}
-
-	String getName() {
-		return name;
-	}
-
-	int getEng() {
-		return eng;
-	}
-
-	int getMat() {
-		return mat;
-	}
-	
 	
 	
 	
