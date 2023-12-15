@@ -1,5 +1,8 @@
 package library.sys;
 
+import lombok.Data;
+
+@Data
 public class Board {
 
 	private int bNo;
