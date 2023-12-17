@@ -85,6 +85,31 @@ public class LibraryApp {
 						
 						break;						
 					case 2:// 2.2) 장서관리
+						switch(menu) {
+						case 1:
+							System.out.println("도서명을 입력하세요>>");
+							System.out.println("==============================================");
+							System.out.println("도서코드	도서명					저자			대출여부");
+							System.out.println("==============================================");
+							System.out.println("==============================================");
+							
+							break;
+						case 2:
+							System.out.println("아이디>>");
+							System.out.println("도서코드>>");
+							
+							
+							break;
+						case 3:
+							break;
+						case 4:
+							break;
+						case 5:
+							break;
+						}//end of 2.2) 장서관리 의 switch문
+						
+						
+						
 						break;
 					case 3:// 2.3) 게시판관리
 						break;
