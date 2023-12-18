@@ -22,4 +22,8 @@ public class Book {
 		this.valid = valid;
 	}
 	
+	void showBook(){
+		System.out.println(code + "	" + title+ "	"  + author+ "	"+ publisher+ "	"  + valid);
+	}
+	
 }//end of class

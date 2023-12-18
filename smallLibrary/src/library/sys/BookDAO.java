@@ -25,11 +25,27 @@ public class BookDAO {
 		}
 		return conn;
 	}
+	void disconn() {
+		try {
+			if(conn != null)
+				conn.close();
+			if(psmt != null)
+				psmt.close();
+			if(psmt2 != null)
+				psmt2.close();
+			if(rs != null)
+				rs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	// (1)도서검색
-	Book getBook(String title) {
+	ArrayList<Book> getBook(String title) {
 		getConn();
-		String sql = "select * from lib_book where title LIKE '%'||?||'%' ";
+		ArrayList<Book> books = new ArrayList<>();
+
+		String sql = "select * from book where title LIKE '%'||?||'%' ";
 
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -42,10 +58,13 @@ public class BookDAO {
 				book.setAuthor(rs.getString("author"));
 				book.setPublisher(rs.getString("publisher"));
 				book.setValid(rs.getString("valid"));
-				return book;
+				books.add(book);
+				return books;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			disconn();
 		}
 		return null;
 	}
@@ -53,7 +72,7 @@ public class BookDAO {
 	// (2)대출
 	boolean modifyIn(String memId, String code, String date) {
 		getConn();
-		String sql_book = "update lib_book set valid = '대출중' where code =?";
+		String sql_book = "update book set valid = '대출중' where code =?";
 		String sql_htr = "insert into book_history values (?,?,?,?)";
 
 		try {
@@ -72,6 +91,8 @@ public class BookDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			disconn();
 		}
 		return false;
 	}//end of modifyIn
@@ -79,8 +100,8 @@ public class BookDAO {
 	// (3)반납
 	boolean modifyOut(String memId, String code, String date) {
 		getConn();
-		String sql_book = "update lib_book set valid = '대출가능' where code =?";
-		String sql_htr = "insert into book_history values (?,?,?,?)";
+		String sql_book = "update book set valid = '대출가능' where code =? ";
+		String sql_htr = "insert into book_history values (?,?,?,?) ";
 
 		try {
 			psmt = conn.prepareStatement(sql_book);
@@ -98,6 +119,8 @@ public class BookDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			disconn();
 		}
 		return false;
 	}//end of modifyOut
@@ -124,6 +147,8 @@ public class BookDAO {
 			}//end of while
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			disconn();
 		}
 		return books;
 	}//end of getBookList

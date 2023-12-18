@@ -15,23 +15,37 @@ public class Member {
 	Member(){
 	
 	}
+	public Member(String memId, String memName) {
+		this.memId = memId;
+		this.memName = memName;
+	}
 	
-	public Member(String memId, String memName, String memPhone, String memLevel) {
+	
+	public Member(String memId, String memName, String memPhone) {
 		this.memId = memId;
 		this.memName = memName;
 		this.memPhone = memPhone;
 	}
 	
-	public Member(String memId, String memName, String memPhone, int checkOut, String overDue, String memLevel) {
+	public Member(String memId, String memName, int checkOut, String overDue, String memLevel) {
 		this.memId = memId;
 		this.memName = memName;
-		this.memPhone = memPhone;
 		this.checkOut = checkOut;
 		this.overDue = overDue;
 		this.memLevel = memLevel;
 	}
 	
+	void showInfo() {
+		System.out.println(memId +"	" + memName+"	"  + memPhone);
+	}
 	
+	void showMems() {
+		System.out.println(memId +"	" + memName +"	"+ checkOut +"	" + overDue + "권" +"	" + memLevel);
+	}
+	
+	void showName() {
+		System.out.println(memId + " " + memName);
+	}
 	
 	
 }//end of class
