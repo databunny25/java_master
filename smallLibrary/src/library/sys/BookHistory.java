@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class BookHistory {
-	private String outDate;
-	private String returnDate;
+	private String outReturn;
+	private String hstDate;
 	private String bookCode;
 	private String bookTitle;
 	
@@ -13,22 +13,23 @@ public class BookHistory {
 		
 	}
 	
-	//대출만 한 경우
-	public BookHistory(String outDate, String bookCode, String bookTitle){
-		this.outDate = outDate;
-		this.bookCode = bookCode;
-		this.bookTitle = bookTitle;
-	}
-	//대출하고 반납한 경우
-	public BookHistory(String outDate, String returnDate, String bookCode, String bookTitle){
-		this.outDate = outDate;
-		this.returnDate = returnDate;
+	
+	public BookHistory(String outReturn, String hstDate, String bookCode, String bookTitle){
+		this.outReturn = outReturn;
+		this.hstDate = hstDate;
+//		this.memId = memId;
 		this.bookCode = bookCode;
 		this.bookTitle = bookTitle;
 	}
 	
+	public BookHistory(String outReturn, String hstDate, String bookCode){
+		this.outReturn = outReturn;
+		this.hstDate = hstDate;
+		this.bookCode = bookCode;
+	}
+	
 	void showHst() {
-		System.out.println(outDate+ "	" + returnDate + "	"+ bookCode +"	" + bookTitle);
+		System.out.println(outReturn+ "	" + hstDate +"	" + bookCode + "	" + bookTitle);
 	}
 	
 	

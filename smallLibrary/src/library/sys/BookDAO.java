@@ -51,7 +51,7 @@ public class BookDAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, title);
 			rs = psmt.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
 				Book book = new Book();
 				book.setCode(rs.getString("code"));
 				book.setTitle(rs.getString("title"));
@@ -59,14 +59,13 @@ public class BookDAO {
 				book.setPublisher(rs.getString("publisher"));
 				book.setValid(rs.getString("valid"));
 				books.add(book);
-				return books;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			disconn();
 		}
-		return null;
+		return books;
 	}
 
 	// (2)대출
@@ -80,9 +79,9 @@ public class BookDAO {
 			psmt2 = conn.prepareStatement(sql_htr);
 			psmt.setString(1, code);
 			psmt2.setString(1, "대출");
-			psmt2.setString(2, memId);
-			psmt2.setString(3, code);
-			psmt2.setString(4, date);
+			psmt2.setString(2, date);
+			psmt2.setString(3, memId);
+			psmt2.setString(4, code);
 
 			int r = psmt.executeUpdate();
 			int s = psmt2.executeUpdate();

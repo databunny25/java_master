@@ -66,114 +66,73 @@ public class MemberDAO {
 		return false;
 	}// end of addMember
 
-	// (2)회원목록
-	ArrayList<Member> getMemberList() {
-		getConn();
-		ArrayList<Member> members = new ArrayList<>();
 
-		String sql = "select * from lib_member order by 1";
+	// (2)회원정보조회
+	Member getMember(String id) { //연체여부, 등급표시 남음
+		getConn();		
 
-		try {
-			psmt = conn.prepareStatement(sql);
-			rs = psmt.executeQuery();
-			while (rs.next()) {
-				Member member = new Member();
-				member.setMemId(rs.getString("mem_id"));
-				member.setMemName(rs.getString("mem_name"));
-				member.setMemPhone(rs.getString("mem_phone"));
-				members.add(member);
-			} // end of while
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			disconn();
-		}
-		return members;
-	}// end of getMemberList
-
-	// (3)회원정보조회
-	ArrayList<Member> getMember(String name) {
-		getConn();
-		ArrayList<Member> members = new ArrayList<>();
-
-		String sql = "select mem_id, mem_name, checkOut, overDue, mem_level from lib_member where mem_name LIKE '%'||?||'%' order by 1";
-		String sql2 = "select COUNT(h.code) from lib_member m, book_history h where m.mem_id = h.mem_id ";
-		//조인하고...count해줘야함.....!!!!!ㅠㅠ
+		String sql = "select mem_id, mem_name, mem_phone, overDue, mem_level from lib_member where mem_id LIKE '%'||?||'%' order by 1 ";
+		String sql2 = "select count(*) from book_history where mem_id LIKE '%'||?||'%' ";
+		
 		try {			
 			psmt = conn.prepareStatement(sql);
 			psmt2 = conn.prepareStatement(sql2);
-			psmt.setString(1, name);
+			psmt.setString(1, id);
+			psmt2.setString(1, id);
 			rs = psmt.executeQuery();
 			rs2 = psmt2.executeQuery();
-			while (rs.next()) {
-				Member member = new Member();
+			Member member = new Member();
+			if (rs.next() ) {
 				member.setMemId(rs.getString("mem_id"));
-				member.setMemName(rs.getString("mem_name"));
-				member.setCheckOut(rs2.getInt("checkOut"));
+				member.setMemName(rs.getString("mem_name"));			
+				member.setMemPhone(rs.getString("mem_phone"));	
 				member.setOverDue(rs.getString("overDue"));
 				member.setMemLevel(rs.getString("mem_level"));
-				members.add(member);
-			} // end of while
+			} 
+			if(rs2.next()) {				
+				member.setCheckOut(rs2.getInt("count(*)"));
+			}
+			return member;
 		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			disconn();
-		}
-		return members;
-	}// end of getBookList
-
-	// (4)회원대출내역
-	Member getMemberName(String id) {		
-		getConn();		
-		String sql = "select mem_id, mem_name from lib_member where mem_id LIKE '%'||?||'%' ";
-		
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, id);
-			rs=psmt.executeQuery();
-			if(rs.next()) {
-				Member memName = new Member();
-				memName.setMemId(rs.getString("mem_id"));
-				memName.setMemName(rs.getString("mem_name"));
-				return memName;
-			}	
-		}catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			disconn();
 		}
 		return null;
-	}//getMemberName
-	
-	ArrayList<BookHistory> getHistory() {
-		ArrayList<BookHistory> bookHistory = new ArrayList<>();
-		getConn();
+	}// end of getMember
 
-		String sql = "select h.hst_date, h.code, b.title from book_history h, book b where h.code = b.code and h.out_return = '대출' and h.code =? ";
-		String sql2 = "select hst_date from book_history where code = ? and out_return = '반납'";
+	// (3)회원대출내역
+	ArrayList<BookHistory> getMemHistory(String id) { //
+		getConn();
+		ArrayList<BookHistory> historys = new ArrayList<>();
+
+		String sql = "select h.out_return, h.hst_date, h.code , b.title "
+				+ "from book_history h, book b "
+				+ "where h.code = b.code(+) "
+				+ "and h.mem_id LIKE '%'||?||'%' ";
 
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt2 = conn.prepareStatement(sql2);
+			psmt.setString(1, id);
 			rs = psmt.executeQuery();
-			rs2 = psmt.executeQuery();
 			while (rs.next()) {
 				BookHistory history = new BookHistory();
-				history.setOutDate(rs.getString("h.hst_date"));
-				history.setReturnDate(rs2.getString("hst_date"));
-				history.setBookCode(rs.getString("h.code"));
-				history.setBookTitle(rs.getString("b.title"));
-				bookHistory.add(history);
+				history.setOutReturn(rs.getString("out_return"));
+				history.setHstDate(rs.getString("hst_date"));
+				history.setBookCode(rs.getString("code"));
+				history.setBookTitle(rs.getString("title"));
+				historys.add(history);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			disconn();
-		}		
-		return bookHistory;
-	}// end of getHistory
+		}
+		return historys;
+	}//getMemHistory
+	
 
-	// (5)회원수정
+	// (4)회원수정
 	boolean modifyMember(String id, String phone) {
 		getConn();
 		String sql = "update lib_member set mem_phone=? where mem_id LIKE '%'||?||'%' ";
@@ -194,7 +153,7 @@ public class MemberDAO {
 		return false;
 	}
 
-	// (6)회원삭제
+	// (5)회원삭제
 	boolean removeMember(String id) {
 		getConn();
 		String sql = "delete from lib_member where mem_id=? ";
