@@ -22,7 +22,7 @@ public class LibraryApp {
 			System.out.println("-관리자 패스워드를 입력하세요>>");
 			String pw = scn.nextLine();
 
-			if (id.equals("a") && pw.equals("a")) {
+			if (id.equals("admin") && pw.equals("yedam")) {
 				System.out.println("로그인 성공");
 			} else {
 				System.out.println("아이디나 비밀번호를 바르게 입력해주세요");
@@ -38,6 +38,11 @@ public class LibraryApp {
 
 				switch (menu) { // 관리자 switch
 				case 1:// 1. 회원관리
+					boolean run3 = true;
+					while(run3) {
+						
+					
+					
 					System.out.println("1)회원등록 2)회원조회 3)회원대출내역 4)회원수정 5)회원삭제 6)나가기 ");
 					menu = Integer.parseInt(scn.nextLine());
 
@@ -65,9 +70,9 @@ public class LibraryApp {
 						id = scn.nextLine();
 						
 						Member mem2 = memDAO.getMember(id);
-						System.out.println("=====================================================");
-						System.out.println("아이디    이름    전화번호  	 	연체여부   대출중도서 회원등급");
-						System.out.println("-----------------------------------------------------");
+						System.out.println("===============================================");
+						System.out.println("아이디    이름    전화번호  	 	총대출횟수	회원등급");
+						System.out.println("-----------------------------------------------");
 						
 						if(mem2 != null) {
 							mem2.showMems();
@@ -128,15 +133,21 @@ public class LibraryApp {
 						break;
 					case 6: // 1. (6)나가기
 						System.out.println("이전 메뉴로 돌아갑니다");
-						run2=false;
+						run3=false;
 						break;
 					default:
 						System.out.println("올바른 번호를 입력하세요");
 						continue;
 					}
 
+					}//end of while run3
 					break;
 				case 2:// 2. 장서관리
+					boolean run4= true;
+					while(run4) {
+						
+					
+					
 					System.out.println("(1)도서검색 (2)대출 (3)반납 (4)장서목록 (5)나가기");
 					menu = Integer.parseInt(scn.nextLine());
 					switch (menu) {
@@ -203,7 +214,8 @@ public class LibraryApp {
 						break;
 					case 5: // 2. (5) 나가기
 						System.out.println("이전 메뉴로 돌아갑니다");
-						run2=false;
+//						run2=false;
+						run4=false;
 						break;
 //					case 6: // (6)도서 등록
 //						
@@ -214,6 +226,7 @@ public class LibraryApp {
 						System.out.println("올바른 번호를 입력하세요");
 						continue;
 					}// end of 2) 장서관리 의 switch문
+					}//end of while run4
 					break;
 
 				case 3:// 3.종료
@@ -225,8 +238,13 @@ public class LibraryApp {
 					System.out.println("올바른 번호를 입력하세요");
 					continue;
 				} //end of switch
+				
 			} //end of while(run2)
 		} // end of while(run)
 
 	}// end of main
+	
+	
+	
+	
 }// end of class

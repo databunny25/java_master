@@ -16,11 +16,11 @@ public class MemberDAO {
 	ResultSet rs2;
 
 	Connection getConn() {
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@192.168.0.37:1521:xe";
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			conn = DriverManager.getConnection(url, "dev", "dev");
-			System.out.println("연결성공!!");
+//			System.out.println("연결성공!!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -47,7 +47,7 @@ public class MemberDAO {
 	// (1)회원등록
 	boolean addMember(Member mem) {
 		getConn();
-		String sql = "insert into lib_member(mem_id, mem_name, mem_phone) values(?,?,? ) ";
+		String sql = "insert into lib_member(mem_id, mem_name, mem_phone, mem_level) values(?,?,?,'독서입문') ";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, mem.getMemId());
@@ -71,7 +71,7 @@ public class MemberDAO {
 	Member getMember(String id) { //연체여부, 등급표시 남음
 		getConn();		
 
-		String sql = "select mem_id, mem_name, mem_phone, overDue, mem_level from lib_member where mem_id LIKE '%'||?||'%' order by 1 ";
+		String sql = "select mem_id, mem_name, mem_phone, mem_level from lib_member where mem_id LIKE '%'||?||'%' order by 1 ";
 		String sql2 = "select count(*) from book_history where mem_id LIKE '%'||?||'%' ";
 		
 		try {			
@@ -86,7 +86,6 @@ public class MemberDAO {
 				member.setMemId(rs.getString("mem_id"));
 				member.setMemName(rs.getString("mem_name"));			
 				member.setMemPhone(rs.getString("mem_phone"));	
-				member.setOverDue(rs.getString("overDue"));
 				member.setMemLevel(rs.getString("mem_level"));
 			} 
 			if(rs2.next()) {				
@@ -109,7 +108,8 @@ public class MemberDAO {
 		String sql = "select h.out_return, h.hst_date, h.code , b.title "
 				+ "from book_history h, book b "
 				+ "where h.code = b.code(+) "
-				+ "and h.mem_id LIKE '%'||?||'%' ";
+				+ "and h.mem_id LIKE '%'||?||'%'"
+				+ "order by 2 desc ";
 
 		try {
 			psmt = conn.prepareStatement(sql);

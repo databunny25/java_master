@@ -145,6 +145,22 @@ public class BookDAO {
 		return false;
 	}//end of removeBook
 	
+	// 어레이리스트, 페이지 => 페이지의 5건을 반환
+	public static ArrayList<Book> pageList(ArrayList<Book> ary, int page){
+		ArrayList<Book> resultAry = new ArrayList<>;
+		
+		int start = (page - 1) *5;
+		int end = page*5
+		int j= 0;
+		for(int i=0; i<ary.size(); i++) {
+			if(i>=start && i<end) {
+				resultAry<j++> = ary<i>;
+			}
+		}
+		return resultAry;
+	}//end of pageList
+	
+	
 	//6.종료
 	
 	

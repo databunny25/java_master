@@ -14,12 +14,12 @@ public class BookDAO {
 	ResultSet rs;
 
 	Connection getConn() {
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@192.168.0.37:1521:xe";
 
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
 			conn = DriverManager.getConnection(url, "dev", "dev");
-			System.out.println("연결성공!!");
+//			System.out.println("연결성공!!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -45,7 +45,7 @@ public class BookDAO {
 		getConn();
 		ArrayList<Book> books = new ArrayList<>();
 
-		String sql = "select * from book where title LIKE '%'||?||'%' ";
+		String sql = "select * from book where title LIKE '%'||?||'%' order by 1 ";
 
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -72,7 +72,7 @@ public class BookDAO {
 	boolean modifyIn(String memId, String code, String date) {
 		getConn();
 		String sql_book = "update book set valid = '대출중' where code =?";
-		String sql_htr = "insert into book_history values (?,?,?,?)";
+		String sql_htr = "insert into book_history values (?,NVL(?,sysdate),?,?)";
 
 		try {
 			psmt = conn.prepareStatement(sql_book);
@@ -100,16 +100,16 @@ public class BookDAO {
 	boolean modifyOut(String memId, String code, String date) {
 		getConn();
 		String sql_book = "update book set valid = '대출가능' where code =? ";
-		String sql_htr = "insert into book_history values (?,?,?,?) ";
+		String sql_htr = "insert into book_history values (?,NVL(?,sysdate),?,?) ";
 
 		try {
 			psmt = conn.prepareStatement(sql_book);
 			psmt2 = conn.prepareStatement(sql_htr);
 			psmt.setString(1, code);
 			psmt2.setString(1, "반납");
-			psmt2.setString(2, memId);
-			psmt2.setString(3, code);
-			psmt2.setString(4, date);
+			psmt2.setString(2, date);
+			psmt2.setString(3, memId);
+			psmt2.setString(4, code);
 
 			int r = psmt.executeUpdate();
 			int s = psmt2.executeUpdate();
