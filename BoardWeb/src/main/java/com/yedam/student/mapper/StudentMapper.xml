@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.yedam.student.mapper.StudentMapper">
+  <select id="studentList" resultType="student">
+    select * from student order by 1 desc
+  </select>
+  
+  <insert id="addStudent" parameterType="student">
+  	insert into student values(#{studentNumber}, #{studentName}, #{englishScore}, #{mathmaticScore})	
+  </insert>
+  
+  <delete id="remStudent" parameterType= "String">
+    delete student where student_number = #{studentNumber} 
+  </delete>
+  
+</mapper>

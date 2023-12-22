@@ -1,4 +1,4 @@
-package common;
+package com.yedam.student.command;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,6 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.yedam.student.service.StudentService;
+import com.yedam.student.serviceImpl.StudentServiceMybatis;
+import com.yedam.student.vo.Student;
 
 /**
  * Servlet implementation class MyInfoServlet
@@ -29,7 +33,6 @@ public class MyInfoServlet extends HttpServlet {
 	 */
     //deGet메소드...요청값request 응답값 response받음, "Served at: 프로젝트 경로" 가 출력됨!
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 		response.setContentType("text/html;charset=utf-8"); //content 타입 : txt, html, json (컨텐트의 타입 지정)
 		
@@ -44,7 +47,7 @@ public class MyInfoServlet extends HttpServlet {
 		
 		// db 저장
 		Student std = new Student(sno, sname, Integer.parseInt(escore), Integer.parseInt(mscore));
-		StudentDAO dao = new StudentDAO();
+		StudentService dao = new StudentServiceMybatis();
 		boolean done = dao.addStudent(std);
 		
 		
@@ -66,7 +69,6 @@ public class MyInfoServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response) doPost는 doGet을 호출하네...
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

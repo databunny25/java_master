@@ -1,4 +1,4 @@
-package common;
+package com.yedam.student.vo;
 //학생정보저장 => Student.java
 // 학생번호(23-001, 23-002) studNo (getStuNo)
 // 학생이름(홍길동, 박씨) 

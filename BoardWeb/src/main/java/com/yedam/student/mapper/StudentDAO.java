@@ -1,4 +1,4 @@
-package common;
+package com.yedam.student.mapper;
 //저장공간 : Oracle DB
 
 import java.sql.Connection;
@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.yedam.student.vo.Student;
 
 //JDBC 배열로 해보기
 //추가 수정 삭제 목록 단건조회
