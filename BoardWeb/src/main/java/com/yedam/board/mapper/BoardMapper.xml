@@ -6,7 +6,7 @@
 <mapper namespace="com.yedam.board.mapper.BoardMapper">
     
   <select id="selectList" resultType="board">
-    select * from board order by 1 desc
+    select * from board order by 1
   </select>
   
   <select id="selectOne" resultType="board" parameterType="int">

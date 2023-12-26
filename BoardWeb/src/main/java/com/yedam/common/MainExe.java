@@ -1,20 +1,28 @@
 package com.yedam.common;
 
-import java.util.List;
-
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-
-import com.yedam.board.mapper.BoardMapper;
-import com.yedam.board.vo.BoardVO;
+import com.yedam.member.service.MemberService;
+import com.yedam.member.serviceImpl.MemberServiceImpl;
+import com.yedam.member.vo.MemberVO;
 
 public class MainExe { //서블릿 만들기 복잡하니까 테스트 하기 위함
 	public static void main(String[] args) {
 		
-		SqlSessionFactory factory = DataSource.getInstance();
-		SqlSession session = factory.openSession(true);
+		//Member 테스트
+		MemberService svc = new MemberServiceImpl();
+		MemberVO vo = svc.login("user1", "1111");
 		
-		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		if(vo != null) {
+			System.out.println(vo);
+			System.out.println("환영!!" + vo.getName() + "님. 권한은" + vo.getResponsibility());
+		}else {
+			System.out.println("id, pw 확인");
+		}
+		
+		
+//		SqlSessionFactory factory = DataSource.getInstance();
+//		SqlSession session = factory.openSession(true);
+//		
+//		BoardMapper mapper = session.getMapper(BoardMapper.class);
 		
 //		// 목록
 //		List<BoardVO> list = mapper.selectList();
@@ -64,5 +72,5 @@ public class MainExe { //서블릿 만들기 복잡하니까 테스트 하기 �
 		
 		
 		
-	}
+	}//end of main
 }
