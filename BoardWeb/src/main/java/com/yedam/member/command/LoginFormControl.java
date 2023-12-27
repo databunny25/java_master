@@ -13,7 +13,7 @@ public class LoginFormControl implements Control {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		try {
-			req.getRequestDispatcher("WEB-INF/member/logForm.jsp").forward(req, resp);
+			req.getRequestDispatcher("/member/logForm.tiles").forward(req, resp);
 		} catch (ServletException |IOException e) {
 			e.printStackTrace();
 		} 

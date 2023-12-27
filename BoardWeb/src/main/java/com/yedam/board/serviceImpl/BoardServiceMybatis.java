@@ -27,6 +27,7 @@ public class BoardServiceMybatis implements BoardService {
 
 	@Override
 	public boolean addBoard(BoardVO vo) {
+		System.out.println(vo);
 		return mapper.insertBoard(vo) == 1;
 	}
 
