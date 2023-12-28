@@ -9,6 +9,13 @@
     select * from member where id=#{id} and pw=#{pw}
   </select>
   
+  <select id="selectList" resultType="member">
+  	select * from member order by 1
+  </select>
+  
+  <select id="getMember" resultType="member" >
+  	select * from member where id=#{id}
+  </select>
  
  
 </mapper>

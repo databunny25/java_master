@@ -38,5 +38,4 @@
 
 </table>
 
-<jsp:include page="../layout/foot.jsp"></jsp:include>
 

@@ -56,7 +56,7 @@
 						</c:when>	                
 						<c:otherwise>
 							<input type="submit" disabled value="수정">
-							<input type="button" disabled onclick="deleteFun()" value="수정">
+							<input type="button" disabled onclick="deleteFun()" value="삭제">
 						</c:otherwise>
                 	</c:choose>
                 	
