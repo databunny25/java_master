@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom01.html</title>
+</head>
+<body id="'bdy">
+    <!-- 표 -->
+<!--    <table>
+        <thead>
+            <tr>
+                <th>아이디</th>
+                <th>이름</th>
+                <th>전화번호</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>user1</td>
+                <td>홍길동</td>
+                <td>010-1111</td>
+            </tr>
+        </tbody>
+
+    </table> -->
+
+    <!--
+    <ul>
+        <li>apple</li>
+        <li>banana</li>
+        <li>cherry</li>
+    </ul>
+    -->
+
+
+    <script>
+    
+        console.log(window);
+        let btn = document.createElement('button'); //Document object model
+        btn.innerText = 'Btn';
+        btn.addEventListener('click', function(){
+            window.alert('Click 됨');
+        })
+
+        console.log(btn);
+
+        //document.querySelector('body').appendChild(btn);
+
+
+        let bdy = document.querySelector('body');
+
+            let ul = document.createElement('ul');
+
+            let li1 = document.createElement('li');
+            li1.innerText = 'apple';
+            ul.appendChild(li1);
+            
+            let li2 = document.createElement('li');
+            li2.innerText = 'banana';
+            ul.appendChild(li2);
+
+            let li3 = document.createElement('li');
+            li3.innerText = 'cherry';
+            ul.appendChild(li3);
+            
+            console.log(ul);
+            bdy.appendChild(ul);
+
+
+
+
+            let tbl = document.createElement('table');
+
+            let thd = document.createElement('thead');
+            let thr = document.createElement('thr');
+            let th1 = document.createElement('th');
+            let th2 = document.createElement('th');
+            let th3 = document.createElement('th');
+            th1.innerText = '아이디';
+            th2.innerText = '이름';
+            th3.innerText = '전화번호';
+            
+
+
+            let tbd = document.createElement('tbody');
+            let tbr = document.createElement('tbr');
+            let td1 = document.createElement('td');
+            let td2 = document.createElement('td');
+            let td3 = document.createElement('td');
+            td1.innerText = 'user1';
+            td2.innerText = '홍길동';
+            td3.innerText = '010-1111';
+            
+            bdy.appendChild(tbl);
+            tbl.appendChild(thd);
+            thd.appendChild(thr);
+            thr.appendChild(th1);
+            thr.appendChild(th2);
+            thr.appendChild(th3);
+            tbl.appendChild(tbd);
+            tbd.appendChild(tbr);
+            tbr.appendChild(td1);
+            tbr.appendChild(td2);
+            tbr.appendChild(td3);
+            
+            console.log(bdy);
+            
+
+    </script>
+</body>
+</html>
