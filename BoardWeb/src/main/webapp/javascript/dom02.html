@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom02.html</title>
+</head>
+<body>
+
+    <!--
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>PHONE</th>
+                </tr>
+            </thead>           
+            <tbody>
+                <tr>
+                    <td>user1</td>
+                    <td>홍길동</td>
+                    <td>010-1111</td>
+                </tr>
+            </tbody>
+        </table>
+    -->
+    
+    <table border="1">
+        <tr>
+            <th>아이디</th>
+            <td><input type="text" id="uid"></td>
+        </tr>
+        <tr>
+            <th>이름</th>
+            <td><input type="text" id="uname"></td>
+        </tr>
+        <tr>
+            <th>연락처</th>
+            <td><input type="text" id="uphone"></td>
+        </tr>
+        <tr>
+            <td>
+                <button id="addBtn">추가</button>
+                <button id="editBtn">변경</button>
+                <button id="delBtn">선택삭제</button>
+            </td>
+        </tr>
+    </table>
+
+
+    <br>
+
+      
+
+
+    <script src="js/dom1.js"></script>
+    <script src="js/table.js"></script>
+
+    <!-- let bdy = document.querySelector('body');
+
+        let tbl = document.createElement('table');
+        let thd = document.createElement('thead');
+        let tr = document.createElement('tr');
+        
+        for(let prop in obj2){
+            let th2 = document.createElement('th');
+            th2.innerText = prop.toUpperCase();
+            tr.appendChild(th2);
+        }
+
+        bdy.appendChild(tbl);
+
+        tbl.appendChild(thd);
+        thd.appendChild(tr);       
+
+        console.log(tbl); -->
+
+</body>
+</html>

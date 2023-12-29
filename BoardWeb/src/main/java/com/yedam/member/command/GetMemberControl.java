@@ -28,7 +28,7 @@ public class GetMemberControl implements Control {
 				rd.forward(req, resp);
 			} catch (ServletException | IOException e) {
 				e.printStackTrace();
-			} 
+			}
 	}
 
 }
