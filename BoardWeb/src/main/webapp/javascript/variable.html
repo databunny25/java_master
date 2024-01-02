@@ -7,82 +7,137 @@
 </head>
 <body>
     <p>Hello</p>
+    <div id="show">
+        <table>
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>나이</th>
+                </tr>
+            </thead>
+            <tbody id="list">
+                
+            </tbody>
+        </table>
+    </div>
+    
 
 
+
+
+    <!-- <script src="variable.js"></script> -->
     <script>
-        //var: 함수레벨  vs  let, const : block 레벨
-        var name = 'Hwang';
         function myfunc(){
-            var name = 'Hong';
-            // name = 'Hong'
-            console.log(name);
-            console.log(this);
+            console.log('myfunc call.');
+            return undefined; //(리턴값 안 적어주면)기본적으로 undefiend를 반환해줌
         }
-        myfunc();
-        console.log(name);
+        console.log(myfunc());
 
+        //null, undefined
+        // let num;
+        let num = null;
+        console.log(typeof num);
 
-        let age=20;
-        function myfunc2(){
-            let age = 22;
-            console.log(age);
-        }
-        // myfunc2();
-        console.log(age);
-        let obj = { id:'Hong', age:20, show: function(){ console.log(this)} };
+        let num1;
+        let num2 = null;
+        console.log(num1 == num2); //true
+        console.log(num1 === num2); //false 타입까지 비교
 
-        obj.show();
-        
-        document.body.addEventListener('click', function(){
-            console.log(this);
-        });
-            
-        // console.log(window);
-
-        // this
-        //1. 전역영역 : window 겍체
-        //2. 함수: window 객체
-        //3. 객체: object
-        //4. 이벤트: 
-        console.log(this);
-        
-
-        // let show = 'Hello';
-        // function show(){
-        //     console.log('show');
-        // }
-
-        // () 실행  ( ()는 함수를 실행한다는 의미다)
-        let show = function(){
-            console.log('show');
-            // return undefined;
-            return '반환값';
+        if(!num1){ //null, undefiend, '', 0 => faslse
+            console.log('num값은 false입니다')
         }
 
-        console.log(show());
-        
-        (function(){
-            console.log('익명함수')
-        })();
+        // parseInt, parseFloat, NaN
+        num1 = '30';
+        console.log(num1, typeof num1); //string은 콘솔창에 검은색으로 나옴
+
+        num1 = parseInt(num1); 
+        console.log(num1, typeof num1); //int는 콘솔창에 파랑생으로 나옴
+
+        num1 = 'a30';
+        num1 = parseInt(num1); 
+        console.log(num1, typeof num1); //NaN (Not a Number)
+
+        //삼항연산자
+        let result = 3 > 2 ? 'true': 'false';
+        let result2 = (3 > 2) ? 'true': 'false';
+        console.log(result);
+
+        //
+        console.log(!'문자열'); //'문자열'은 true다~ 따라서 false출력
+        console.log(!!'문자열'); // true
 
 
-        // 함수명명 규칙
-        function showMyName(){
-            console.log('홍길동');
+        //비트연산자
+        console.log(12 & 3); //0000(2진수) 가 반환되면서 콘솔 출력값은 0
+        // 12 => 1100 (2진수)
+        //  3 => 0011
+        console.log(12 | 3); //1111(2진수) 가 반환되면서 콘솔 출력값은 15
+
+        console.log(12 >> 1); //12라는 값을 오른쪽으로 한번 shift해서 계산하겠다라는 의미...110(2진수)가 됨, 콘솔창에 6출력
+        console.log(12 >> 2); //12라는 값을 오른쪽으로 두번 shift ...11(2진수), 콘솔창에 3출력
+
+
+        //반복문
+        for(let i = 1; i<10;i=i+2){
+
         }
-
-        // 상수선언
-        const height = 167.9;
-        // height = 169; 상수는 값을 변경할수 없다
-
-        const friend = {
-            name: '홍길동',
-            phone: '010-1111'
+        // for~of
+        let friends = [{name:'라이언', age:5}, {name:'어피치', age:4}];
+        for(let friend of friends){
+            console.log('이름:'+friend.name+',나이:'+friend.age);
         }
-        friend.phone = '010-2222'; //상수 friend의 속성의 값 변경은 오류 X
+        // for~in
+        for(let prop in friends[0]){
+            console.log('속성: ' + prop + ', 값:' + friends[0][prop]);
+        }
+        // forEach
+        friends[friends.length] = {name:'콘', age:2}
+        friends[friends.length] = {name:'무지', age:3}
 
-        // friend = {} 이렇게 써서 값을 재할당하면 오류나겠지~
-        
+        friends.forEach(function(friend, idx, friendsAry){ //데이터타입이 배열인경우 forEach라는 메소드를 쓸수있다! 매개값으로 함수가 온다!
+            if(friend['age']>3){ //friend.age>3 이렇게 쓰는것도 가능
+                console.log(friend, idx, friendsAry);
+            }
+            if(idx % 2 == 1 ){
+                console.log(friend, idx);
+            }
+            if(idx == friendsAry.length -1){
+                console.log(friend);
+            }
+        }); 
+
+
+
+        // 3살 넘는 친구들만 표로 출력
+        let tlist = document.querySelector('#list');
+        friends.forEach(makeFriend);
+
+        // friends.forEach(function(friend, idx, friendsAry){
+        //     if(friend['age'] >3){
+        //         console.log(friend, idx, friendsAry);
+        //         let tr = document.createElement('tr');
+        //         for(let prop in friend){
+        //             let td = document.createElement('td');
+        //             td.innerText = friend[prop];
+        //             tr.appendChild(td);
+        //         }
+        //         tlist.appendChild(tr);
+        //     }
+        // });
+
+        function makeFriend(friend, idx, friendsAry){
+            if(friend['age'] >3){
+                console.log(friend, idx, friendsAry);
+                let tr = document.createElement('tr');
+                for(let prop in friend){
+                    let td = document.createElement('td');
+                    td.innerText = friend[prop];
+                    tr.appendChild(td);
+                }
+                tlist.appendChild(tr);
+            }
+        };
 
     </script>
 </body>
