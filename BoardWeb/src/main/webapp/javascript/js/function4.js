@@ -1,6 +1,6 @@
 // function4.js
 
-//달력을 생성하는 객체
+//달력을 생성하는 객체...많이 쓰는 방식!
 const cal = {
     days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thr', 'Fri', 'Sat'],
     makeCalendar: function (month) {
