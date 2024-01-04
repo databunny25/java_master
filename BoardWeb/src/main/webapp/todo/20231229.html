@@ -15,6 +15,7 @@
             width: 80px;
             height: 30px;
             background-color: yellow;
+            margin: 3px;
         }
     </style>
 </head>
@@ -29,6 +30,7 @@
         const words = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum voluptates molestiae laudantium? In quam aliquam repudiandae, veritatis, voluptate ab nisi similique eligendi aperiam magnam, vel dolor doloremque obcaecati tempora veniam?';
 
         const wordAry = words.split(' ');
+        //화면상에 span생성
         let show = document.getElementById('show');
         //for반복문
         wordAry.forEach(function(word){
@@ -40,7 +42,7 @@
         //id=delBtn에 클릭
         document.getElementById('delBtn').addEventListener('click',function(){
             //사용자의 입력값(userInput) == 
-            //화면상에 span요소를 가져와서 span.remove();
+            //화면상에 span요소를 가져와서 spanAll : span.remove();
 
             // let userInput = document.getElementById('#userValue').value;
             let userInput = document.querySelector('input[name=userValue]').value;
