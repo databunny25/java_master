@@ -110,6 +110,7 @@
     <script src="js/service.js"></script>
     
     <script>
+    	//스크립트 여기 붙여...
     	function deleteFun() {
     		console.log(window);
     		document.forms.myForm.action = "removeForm.do";
@@ -134,7 +135,7 @@
     	
     	
     	// Ajax호출
-    	function showList(page){
+    	function showList_backup(page){
     		
     		ul.innerHTML = '';    		
 	    	const xhtp = new XMLHttpRequest();
@@ -148,6 +149,20 @@
 	    		})
 	    	}
     	}// 댓글목록 보여주는 showList
+    	
+    	
+    	function showList(page){
+    		ul.innerHTML = '';
+    		fetch('replyListJson.do?bno=' + bno + '&page=' + page)
+    		.then(str => str.json())
+    		.then(result => {
+    			result.forEach(reply => {
+	    			let li = makeLi(reply);
+	    			ul.appendChild(li);    				
+    			});
+    		})
+    		.catch(reject => console.log(reject));
+    	}    	    	
     	showList(pageInfo);
     	
     	
@@ -201,18 +216,51 @@
     		let reply = document.querySelector('#content').value;
     		let replyer = '${logId}';
     		
-    		const addAjax = new XMLHttpRequest();
-    		addAjax.open('get', 'addReplyJson.do?reply='+reply+'&replyer='+replyer+'&bno='+bno);
-    		addAjax.send();
+    		
+    		// fetch함수
+    		fetch('addReplyJson.do', {
+    			method: 'post',
+    			headers: {
+    				'Content-Type': 'application/x-www-form-urlencoded'
+    			},
+    			body: 'reply='+reply+'&replyer='+replyer+'&bno='+bno
+    		})
+    		.then(str => str.json())
+    		.then(result => {
+    			console.log(result);    			
+    			if(result.retCode == 'OK'){
+    				
+    				//let reply = result.vo;
+    				//let li = makeLi(reply);        			
+        			//ul.appendChild(li);        		
+        			alert('처리성공');
+        			pageInfo =1;        			
+        			showList(pageInfo);
+        			pagingList();        			
+        			
+        			document.querySelector('#content').value = '';
+        			
+    			}else if(result.retCode == 'NG'){
+    				alert('처리중 에러');
+    			}
+    		})
+    		.catch(err => console.error(err));
+    		
+    		/* const addAjax = new XMLHttpRequest();    		
+    		addAjax.open('post', 'addReplyJson.do');
+    		addAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    		addAjax.send('reply='+reply+'&replyer='+replyer+'&bno='+bno);
     		addAjax.onload = function(){
     			let result = JSON.parse(addAjax.responseText);
     			if(result.retCode == 'OK'){
     				    				
     				//let reply = result.vo;
     				//let li = makeLi(reply);        			
-        			//ul.appendChild(li);        			
-        			showList(pageInfo);	
-        			
+        			//ul.appendChild(li);        		
+        			alert('처리성공');
+        			pageInfo =1;        			
+        			showList(pageInfo);
+        			pagingList();        			
         			
         			document.querySelector('#content').value = '';
         			
@@ -220,10 +268,8 @@
     				alert('처리중 에러');
     			}
     		}//end of function
-    		console.log(reply, replyer);
+    		console.log(reply, replyer); */
     	}
-    	
-    	
     </script>
 
 <jsp:include page="../layout/foot.jsp"></jsp:include>

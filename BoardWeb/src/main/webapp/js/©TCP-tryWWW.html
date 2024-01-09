@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<!-- saved from url=(0087)https://tcpschool.com/examples/tryit/tryhtml.php?filename=jq_elementSelection_access_01 -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./©TCP-tryWWW_files/f(7).txt"></script><script type="text/javascript" async="" src="./©TCP-tryWWW_files/js"></script><script src="./©TCP-tryWWW_files/f(8).txt" id="google_shimpl"></script><script async="" src="./©TCP-tryWWW_files/analytics.js.다운로드"></script><script async="" src="./©TCP-tryWWW_files/f(9).txt" crossorigin="anonymous" data-checked-head="true"></script>
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-86934860-1', 'auto');ga('send', 'pageview');</script>
+
+
+
+    <meta content="IE=11.0000" http-equiv="X-UA-Compatible">
+    <title>©TCP-tryWWW</title>
+    
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./©TCP-tryWWW_files/jquery-1.12.0.min.js.다운로드"></script><meta http-equiv="origin-trial" content="As0hBNJ8h++fNYlkq8cTye2qDLyom8NddByiVytXGGD0YVE+2CEuTCpqXMDxdhOMILKoaiaYifwEvCRlJ/9GcQ8AAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="AgRYsXo24ypxC89CJanC+JgEmraCCBebKl8ZmG7Tj5oJNx0cmH0NtNRZs3NB5ubhpbX/bIt7l2zJOSyO64NGmwMAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3MTk1MzI3OTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A/ERL66fN363FkXxgDc6F1+ucRUkAhjEca9W3la6xaLnD2Y1lABsqmdaJmPNaUKPKVBRpyMKEhXYl7rSvrQw+AkAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A6OdGH3fVf4eKRDbXb4thXA4InNqDJDRhZ8U533U/roYjp4Yau0T3YSuc63vmAs/8ga1cD0E3A7LEq6AXk1uXgsAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MTkzNTk5OTksImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9">
+    <script src="./©TCP-tryWWW_files/tcpscript_common.js.다운로드"></script>
+    <link href="./©TCP-tryWWW_files/try.css" rel="stylesheet">
+    <!--[if lt IE 8]>
+    <style>
+    .textareacontainer, .iframecontainer {width:48%;}
+    .textarea, .iframe {height:800px;}
+    #textareaCode, #iframeResult {height:700px;}
+    .menu img {display:none;}
+    </style>
+    <![endif]-->
+
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/codemirror.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/3024-day.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/3024-night.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/abcdef.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/ambiance.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/base16-dark.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/bespin.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/base16-light.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/blackboard.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/cobalt.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/colorforth.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/dracula.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/duotone-dark.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/duotone-light.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/eclipse.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/elegant.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/erlang-dark.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/hopscotch.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/icecoder.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/isotope.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/lesser-dark.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/liquibyte.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/material.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/mbo.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/mdn-like.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/midnight.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/monokai.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/neat.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/neo.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/night.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/panda-syntax.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/paraiso-dark.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/paraiso-light.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/pastel-on-dark.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/railscasts.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/rubyblue.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/seti.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/solarized.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/the-matrix.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/tomorrow-night-bright.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/tomorrow-night-eighties.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/ttcn.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/twilight.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/vibrant-ink.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/xq-dark.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/xq-light.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/yeti.css">
+    <link rel="stylesheet" href="./©TCP-tryWWW_files/zenburn.css">
+
+    <script src="./©TCP-tryWWW_files/codemirror.js.다운로드"></script>
+    <script src="./©TCP-tryWWW_files/htmlmixed.js.다운로드"></script>
+    <script src="./©TCP-tryWWW_files/xml.js.다운로드"></script>
+    <script src="./©TCP-tryWWW_files/javascript.js.다운로드"></script>
+    <script src="./©TCP-tryWWW_files/css.js.다운로드"></script>
+    <script src="./©TCP-tryWWW_files/vbscript.js.다운로드"></script>
+
+    <script src="./©TCP-tryWWW_files/active-line.js.다운로드"></script>
+    <script src="./©TCP-tryWWW_files/matchbrackets.js.다운로드"></script>
+
+    <script type="text/javascript">
+	    var curorientationMode = undefined;
+		var prevOrientationMode = undefined;
+
+        function submitTryit() {
+            document.getElementById("iframewrapper").innerHTML = "";
+
+            var text = editor.getDoc().getValue();
+            if(text === undefined || text === null) { return; }
+        
+            text = text.trim();
+
+            if(typeof(text) == "string" && text.length > 0) {
+                var ifr = document.createElement("iframe");
+                ifr.setAttribute("frameborder", "0");
+                ifr.setAttribute("id", "iframeResult");                
+                document.getElementById("iframewrapper").appendChild(ifr);
+                var ifrw = (ifr.contentWindow) ? ifr.contentWindow : (ifr.contentDocument.document) ? ifr.contentDocument.document : ifr.contentDocument;
+                ifrw.document.open();
+                ifrw.document.write(text);
+                ifrw.document.close();
+            }
+        }
+
+		var mode_automatic = 1, mode_horizontal = 2, mode_vertical = 3, mode_null = 0;
+		var modeOrientation = mode_automatic;
+		var curOrientation = mode_null;
+
+		function setOrientation(mode) {
+			var width, height;
+			modeOrientation = mode;
+
+			if(modeOrientation == mode_horizontal){
+				curOrientation = mode;
+				document.getElementById("stackA").style.background = "transparent";
+				document.getElementById("stackH").style.background = "#999999";
+				document.getElementById("stackV").style.background = "transparent";
+			}else if(modeOrientation == mode_vertical){
+				curOrientation = mode;
+				document.getElementById("stackA").style.background = "transparent";
+				document.getElementById("stackH").style.background = "transparent";
+				document.getElementById("stackV").style.background = "#999999";
+			}else{
+				document.getElementById("stackA").style.background = "#999999";
+				document.getElementById("stackH").style.background = "transparent";
+				document.getElementById("stackV").style.background = "transparent";
+
+				width = $(window).width();
+				height = $(window).height();
+
+				if(width >= height){
+					curOrientation = mode_vertical;
+				}else{
+					curOrientation = mode_horizontal;
+				}
+			}
+
+			if (curOrientation == mode_horizontal) {
+				document.getElementById("textareacontainer").style.height = "50%";
+				document.getElementById("iframecontainer").style.height = "50%";
+				document.getElementById("textareacontainer").style.width = "100%";
+				document.getElementById("iframecontainer").style.width = "100%";
+			} else if(curOrientation == mode_vertical){
+				document.getElementById("textareacontainer").style.height = "100%";
+				document.getElementById("iframecontainer").style.height = "100%";
+				document.getElementById("textareacontainer").style.width = "50%";
+				document.getElementById("iframecontainer").style.width = "50%";
+			}
+		}
+
+		function restack(mode){
+			setOrientation(mode);
+			resizeEditor();
+		}
+
+    </script>
+
+    <meta name="GENERATOR" content="MSHTML 11.00.9600.18161">
+</head><iframe id="google_esf" name="google_esf" src="./©TCP-tryWWW_files/zrt_lookup_fy2021.html" style="display: none;"></iframe>
+<body aria-hidden="false" style="padding: 0px;">
+    <!-- TryitLeaderboard -->
+    <img src="./©TCP-tryWWW_files/img_TCP_logo.png" id="logo">
+    <div id="tryitLeaderboard">
+        <div id=""></div>
+    </div>
+    <!-- TryitLeaderboard -->
+
+    <!-- topnav -->
+    <div class="trytopnav">
+        <ul class="w3-navbar w3-light-grey" style="border-top:1px solid #f1f1f1;">
+            <li style="width:auto !important;float:left;">
+                <span style="padding:8px 10px 8px 10px;display:block" id="navtxt">코드:</span>
+            </li>
+
+            <li class="stack" style="width:auto !important;float:left;">
+                <button title="Automatic" onclick="restack(mode_automatic)" id="stackA" class=" " style="background: rgb(153, 153, 153);">
+                    <img src="./©TCP-tryWWW_files/stack_automatic.png">
+                </button>
+            </li>
+
+            <li class="stack" style="width:auto !important;float:left;">
+                <button title="Vertically" onclick="restack(mode_vertical)" id="stackV" class=" " style="background: transparent;">
+                    <img src="./©TCP-tryWWW_files/stack_vertically.png">
+                </button>
+            </li>
+
+            <li class="stack" style="width:auto !important;float:left;">
+                <button title="Horizontally" onclick="restack(mode_horizontal)" id="stackH" class=" " style="background: transparent;">
+                    <img src="./©TCP-tryWWW_files/stack_horizontally.png">
+                </button>
+            </li>
+
+            <li style="width:auto !important;float:left; text-align:">
+                <!-- <button class="w3-green w3-hover-white w3-hover-text-green" onclick="submitTryit()">See Result &#187;</button> -->
+                <button class="seeResult" onclick="submitTryit()" type="button">결과보기 »</button>
+            </li>
+
+            <!--
+			<li class="w3-right w3-hide-small">
+				<span style="padding:8px 16px;display:block">
+					Try it Yourself - &#169; <a href="http://www.w3schools.com/" class="w3schoolslink">w3schools.com</a>
+				</span>
+			</li>  
+			-->
+        </ul>
+    </div>
+    <!-- topnav -->
+
+    <!-- container -->
+    <div class="container">
+        <div class="textareacontainer" id="textareacontainer" style="height: 100%; width: 50%;">
+            <div class="textarea">
+                <div class="textareawrapper" style="background-color:white;">
+                    <!-- textarea container -->
+                    <textarea class="code_input" id="textareaCode" name="textareaCode" spellcheck="false" wrap="logical" autocomplete="off" style="display: none;">&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+	&lt;title&gt;jQuery Element Access&lt;/title&gt;
+	&lt;script src="https://code.jquery.com/jquery-1.12.4.min.js"&gt;&lt;/script&gt;
+	&lt;script&gt;
+		$(function() {
+			$("button").on("click", function() {
+				var newText = $("h1").html();	// &lt;h1&gt;요소의 텍스트를 읽어오는 getter 메소드
+				$("#text").html(newText);		// id가 "text"인 요소에 새로운 텍스트를 설정하는 setter 메소드
+			});
+		});
+	&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+	&lt;h1&gt;.html() 메소드&lt;/h1&gt;
+	&lt;p&gt;아래의 버튼을 누르면 다음 단락에 새로운 텍스트를 설정할 수 있어요!!&lt;/p&gt;
+	&lt;button&gt;새로운 텍스트!&lt;/button&gt;
+	&lt;p id="text"&gt;&lt;/p&gt;
+	
+&lt;/body&gt;
+
+&lt;/html&gt;</textarea><div class="CodeMirror cm-s-default CodeMirror-focused" style="width: 555px; height: 733px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 439px; left: 181px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-vscrollbar" cm-not-content="true" style="bottom: 0px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" cm-not-content="true" style="right: 0px; left: 30px; display: block;"><div style="height: 100%; min-height: 1px; width: 761px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true" style="height: 17px; width: 17px;"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 30px; margin-bottom: -17px; border-right-width: 13px; min-height: 518px; min-width: 609px; padding-right: 0px; padding-bottom: 17px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style=""><div class="CodeMirror-cursor" style="left: 151px; top: 435px; height: 15px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><div class="" style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">&lt;!DOCTYPE html&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">html</span> <span class="cm-attribute">lang</span>=<span class="cm-string">"ko"</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">head</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">meta</span> <span class="cm-attribute">charset</span>=<span class="cm-string">"UTF-8"</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span>jQuery Element Access<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">title</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">script</span> <span class="cm-attribute">src</span>=<span class="cm-string">"https://code.jquery.com/jquery-1.12.4.min.js"</span><span class="cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-tag">script</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">script</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">$</span>(<span class="cm-keyword">function</span>() {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">$</span>(<span class="cm-string">"button"</span>).<span class="cm-property">on</span>(<span class="cm-string">"click"</span>, <span class="cm-keyword">function</span>() {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">var</span> <span class="cm-def">newText</span> <span class="cm-operator">=</span> <span class="cm-variable">$</span>(<span class="cm-string">"h1"</span>).<span class="cm-property">html</span>();<span class="cm-tab" role="presentation" cm-text="	">   </span><span class="cm-comment">// &lt;h1&gt;요소의 텍스트를 읽어오는 getter 메소드</span></span></pre></div><div style="position: relative;" class=""><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-variable">$</span>(<span class="cm-string">"#text"</span>).<span class="cm-property">html</span>(<span class="cm-variable-2">newText</span>);<span class="cm-tab" role="presentation" cm-text="	">   </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-comment">// id가 "text"인 요소에 새로운 텍스트를 설정하는 setter 메소드</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span>});</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tab" role="presentation" cm-text="	">    </span>});</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">      </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">      </span></pre></div><div class="" style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">17</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">      <span class="cm-keyword">let</span> <span class="cm-def">ul</span> <span class="cm-operator">=</span> <span class="cm-variable">$</span>(<span class="cm-string">'&lt;ul /&gt;'</span>).<span class="cm-property">append</span>(<span class="cm-variable">$</span>(<span class="cm-operator">&lt;</span><span class="cm-variable">li</span> <span class="cm-operator">/&gt;</span><span class="cm-string">').text('</span><span class="cm-variable">Apple</span><span class="cm-string">'),$('</span><span class="cm-operator">&lt;</span><span class="cm-variable">li</span> <span class="cm-operator">/&gt;</span>).<span class="cm-property">text</span>(<span class="cm-string">'banana'</span>));</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">18</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">      <span class="cm-variable">ul</span>.<span class="cm-property">arrt</span>(<span class="cm-string">'class'</span>,<span class="cm-string">'parent'</span>);</span></pre></div><div class="" style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">19</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">      <span class="cm-variable">$</span>(<span class="cm-error">#show').append(ul);</span></span></pre></div><div class="" style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">20</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">      </span></pre></div><div class="" style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">21</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">      </span></pre></div><div style="position: relative;" class=""><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">22</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">script</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">23</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">head</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">24</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">25</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">body</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">26</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div class="" style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">27</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">h1</span><span class="cm-tag cm-bracket">&gt;</span>.html() 메소드<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">h1</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">28</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span>아래의 버튼을 누르면 다음 단락에 새로운 텍스트를 설정할 수 있어요!!<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">29</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">button</span><span class="cm-tag cm-bracket">&gt;</span>새로운 텍스트!<span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;" class="CodeMirror-activeline"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -30px; width: 30px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">30</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">p</span> <span class="cm-attribute">id</span>=<span class="cm-string">"text"</span><span class="cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-tag">p</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">31</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">32</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">body</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">33</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -30px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">34</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">html</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; border-bottom: 17px solid transparent; top: 518px;"></div><div class="CodeMirror-gutters" style="height: 548px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div></div></div></div>
+                    <form style="margin: 0px; display: none;" autocomplete="off">
+                        <input name="code" id="code" type="hidden">
+                        <input name="bt" id="bt" type="hidden">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="iframecontainer" id="iframecontainer" style="height: 100%; width: 50%;">
+            <div class="iframe">
+                <!--
+                <div style="overflow: auto;">
+                    <div class="headerText2">
+						Test of Coding Professional  - &copy; <a href="http://www.tcpschool.com/">TCP</a>
+					</div>
+                </div>
+				-->
+                <div class="iframewrapper" id="iframewrapper"><iframe frameborder="0" id="iframeResult" src="./©TCP-tryWWW_files/saved_resource(3).html"></iframe></div>
+            </div>
+        </div>
+        <!--
+        <div class="footerText">
+            Test of Coding Professional  - &copy; <a href="http://www.tcpschool.com/">TCP</a>
+        </div>
+		-->
+    </div>
+    <!-- container -->
+
+    <script>
+      // Define an extended mixed-mode that understands vbscript and
+      // leaves mustache/handlebars embedded templates in html mode
+      var mixedMode = {
+        name: "htmlmixed",
+        scriptTypes: [{matches: /\/x-handlebars-template|\/x-mustache/i,
+                       mode: null},
+                      {matches: /(text|application)\/(x-)?vb(a|script)/i,
+                       mode: "vbscript"}]
+      };
+
+	  var editor = CodeMirror.fromTextArea(document.getElementById("textareaCode"), {
+		mode: mixedMode,
+		lineNumbers: true,
+		styleActiveLine: true,
+		matchBrackets: true,
+		theme: "default"
+	  });
+
+		if(isMobile()){
+			editor.setOption("lineNumbers", false);
+		}
+
+		function resizeEditor() {
+			if(modeOrientation == mode_automatic){
+				if(!isAndroid()){
+					setOrientation(modeOrientation);  // 안드로이드가 아닌 경우
+				}else{
+					// 안드로이드의 경우 오리엔테이션이 달라진 경우만 체크
+					if(	prevOrientationMode != curOrientationMode){
+						setOrientation(modeOrientation);
+						prevOrientationMode = curOrientationMode;
+					}
+				}
+			}
+			editor.setSize($('.textareawrapper').width(), $('.textareawrapper').height());
+		};
+
+		$(window).resize(resizeEditor);
+		$(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFullscreenChange', resizeEditor);
+
+        // mobile orientation change
+        function orientationChange(){
+			curOrientationMode = doOnOrientationChange();
+        };
+         // listen for orientation change
+        window.onorientationchange = orientationChange;
+
+        //set initially
+        orientationChange();
+		resizeEditor();
+		submitTryit();
+
+    </script><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting" src="./©TCP-tryWWW_files/ads.html" data-google-container-id="a!1" data-load-complete="true"></iframe></div></ins>
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" data-anchor-status="displayed" data-ad-status="filled" style="display: none; width: 100% !important; height: 129px !important; bottom: 0px; clear: none !important; float: none !important; left: 0px; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1; overflow: visible !important; padding: 0px !important; position: fixed; right: auto !important; top: auto !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647; background: rgb(250, 250, 250) !important;" data-anchor-shown="true"><div class="grippy-host"><template shadowrootmode="closed"><ins class="ee" style="inset: auto !important; clear: none !important; display: block !important; float: none !important; height: 5px !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: relative !important; vertical-align: baseline !important; visibility: visible !important; width: auto !important; z-index: 1 !important; background-color: rgb(250, 250, 250) !important; box-shadow: rgba(0, 0, 0, 0.2) 0px -1px 5px -1px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px !important;"><span style="display: block !important; width: 80px !important; height: 45px !important; bottom: 0px !important; left: 0% !important; pointer-events: none !important;"><svg style="margin: 0px !important; position: absolute !important; bottom: 0px !important; left: 0% !important; display: block !important; width: 80px !important; height: 30px !important; transform: none !important; pointer-events: initial !important;"><defs><filter id="dropShadowTop" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><fecomponenttransfer in="SourceAlpha" result="TransferredAlpha"><fefuncr type="discrete" tableValues="0.5"></fefuncr><fefuncg type="discrete" tableValues="0.5"></fefuncg><fefuncb type="discrete" tableValues="0.5"></fefuncb></fecomponenttransfer><fegaussianblur in="TransferredAlpha" stdDeviation="2"></fegaussianblur><feoffset dx="0" dy="0" result="offsetblur"></feoffset><femerge><femergenode></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter></defs><path d="M0,26 L0,6 A6,6 0 0,1 6,1 L50,1 A6,6 0 0,1 56,6 L56,20 A6,6 0 0,0 62,26 Z" stroke="#FAFAFA" stroke-width="1" fill="#FAFAFA" style="filter: url(&quot;#dropShadowTop&quot;);"></path><rect x="0" y="25" width="80" height="5" style="fill: rgb(250, 250, 250);"></rect><g class="down" stroke="#616161" stroke-width="2px" stroke-linecap="square"><line x1="22" y1="12" x2="28" y2="18"></line><line x1="28" y1="18" x2="34" y2="12"></line></g></svg></span></ins></template></div><div id="aswift_2_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none !important; height: 124px !important; width: 100% !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_2" name="aswift_2" browsingtopics="true" style="width: 1005px !important; height: 124px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1005" height="124" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting" src="./©TCP-tryWWW_files/zrt_lookup_fy2021(1).html" data-google-container-id="a!3" data-google-query-id="CJGBqcDXz4MDFYHeFgUd4l8LPQ" data-load-complete="true"></iframe></div></ins><iframe src="./©TCP-tryWWW_files/aframe.html" width="0" height="0" style="display: none;"></iframe></body><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important; width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; clear: none !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: fixed !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647 !important; background: transparent !important;" aria-hidden="true" data-ad-status="filled" data-vignette-loaded="true"><div id="aswift_1_host" tabindex="0" title="Advertisement" aria-label="Advertisement" style="border: none !important; height: 100vh !important; width: 100vw !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_1" name="aswift_1" browsingtopics="true" style="width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; position: absolute !important; clear: none !important; display: inline !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; vertical-align: baseline !important; visibility: visible !important; z-index: auto !important;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="" height="" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting" src="./©TCP-tryWWW_files/zrt_lookup_fy2021(2).html" data-google-container-id="a!2" data-google-query-id="CJCBqcDXz4MDFYHeFgUd4l8LPQ" data-load-complete="true"></iframe></div></ins></html>
