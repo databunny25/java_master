@@ -18,13 +18,16 @@
 		</tr>
 
 	</thead>
-	<tbody>
-		<tr>
-			<td>${vo.id }</td>
-			<td>${vo.pw }</td>
-			<td>${vo.name }</td>
-			<td>${vo.responsibility }</td>
-		</tr>
+	<tbody>			
+		<c:forEach var="vo" items="${getMember }">
+			<tr>
+				<td><a href="getMember.do?id=${vo.id }">${vo.id }</a></td>
+				<td>${vo.pw }</td>
+				<td>${vo.name }</td>
+				<td>${vo.responsibility }</td>
+			</tr>
+		</c:forEach>
+		
 	</tbody>
 
 

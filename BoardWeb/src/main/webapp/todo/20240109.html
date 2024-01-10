@@ -26,14 +26,18 @@
 				$('input[name="memberId"]').val('');
 			}) //등록
 			
-			$('#delSelected').on('click', function(){
-				$(':checked').parentsUntil('tbody').remove();
-			}) //선택삭제
 			
-			$('th:last-child').on('click', function(){
-				$('input').checkbox(true);
-				
-			});
+			//선택삭제
+			$('#delSelected').on('click', function(){
+				$('tbody input:checked').parentsUntil('tbody').remove();
+			})
+			
+			//전체선택/해제...
+			$('thead input[type="checkbox"]').on('change', function(){
+				console.log(this.checked);				
+				//prop로...
+				$('tbody input[type="checkbox"]').prop('checked', this.checked);
+			})
 			
 			
         })

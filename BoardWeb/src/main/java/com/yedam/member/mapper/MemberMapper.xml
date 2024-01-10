@@ -18,4 +18,13 @@
   </select>
  
  
+  <insert id="insertMember" parameterType="member">
+  	insert into member values(#{id}, #{pw}, #{name}, #{responsibility}, #{image} )
+  </insert>		
+ 
+  <delete id="deleteMember" parameterType="string">
+  	delete from member where id = #{id}
+  </delete>
+ 
+ 
 </mapper>
