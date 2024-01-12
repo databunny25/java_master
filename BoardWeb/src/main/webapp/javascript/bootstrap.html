@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 p-2">
+                <table class="table table-striped table-hover table-success">
+                    <thead>
+                        <tr>
+                            <th>순위</th>
+                            <th>영화명</th>
+                            <th>개봉일자</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mlist">
+                        
+                    </tbody>
+                    
+                </table>
+
+            </div>
+            
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title mtitle">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">상영시간: <span class="mtime"></span></li>
+                    <li class="list-group-item mdate">개봉일자: <span class="mdate"></span></li>
+                    <li class="list-group-item">감독: <span class="mdirector"></span></li>
+                    <li class="list-group-item">배우: <span class="mactors"></span></li>
+                </ul>
+                <div class="card-footer">
+                    Card footer
+                </div>
+            </div>
+              
+        </div>
+
+
+
+    </div>
+    
+    <script>
+        function movieBoxList(){
+            const url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20240110";
+            fetch(url)
+            .then(result=>result.json())
+            .then(result=>{
+                const movies = result.boxOfficeResult.dailyBoxOfficeList
+                
+                movies.forEach(movie => {
+                    const newtr = `<tr>
+                                <td>${movie.rank}</td>
+                                <td data-mcode="${movie.movieCd}" onclick="movieInfo()"> ${movie.movieNm}</td>
+                                <td data-mdate">${movie.openDt}</td>
+                            </tr>`
+                    mlist.insertAdjacentHTML('beforeend', newtr);  //태그를 노드로 바꾸어 쓰려면 insertAdjacentHTML 써야함!!! 아이디 값은 그냥 이렇게 찾아오는 것도 가능하다
+                    // document.querySelector("#list").insertAdjacentHTML('beforeend', newtr);     
+                })                
+            })
+        }
+
+        function movieInfo(){
+            const movieCd = event.currentTarget.dataset.mcode; //event.target.이라고 했으면 영화이름 그 자체인거고, currentTarget을 하면 dataset할때 실제로 읽어오는 데이터의 위치를 잘 찾아준다
+            const url2 = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=f5eef3421c602c6cb7ea224104795888&movieCd=" + movieCd;
+            fetch(url2)
+            .then(result=>result.json())
+            .then(result =>{
+                const movieInfo = result.movieInfoResult.movieInfo;
+
+                // 영화감독 이름 출력
+                const movieDir = movieInfo.directors[0].peopleNm;
+                // console.dir(movieDir);
+                document.querySelector(".mdirector").innerHTML = movieDir;
+
+                //출연자 actors
+                const actors = movieInfo.actors;
+                document.querySelector(".mactors").innerHTML = "";
+                console.log(actors);
+                    for( let i=0; i< actors.length;i++){
+                        let actor = actors[i].peopleNm;
+                        document.querySelector(".mactors").innerHTML += actor + " ";
+                    }
+
+              
+
+
+
+                //상영시간
+                const time = movieInfo.showTm;
+                document.querySelector(".mtime").innerHTML = time;
+
+                // 개봉일자
+                const date = movieInfo.openDt;
+                document.querySelector(".mdate").innerHTML = date;
+
+        })
+        }
+        movieBoxList();
+        
+    </script>
+
+</body>
+</html>

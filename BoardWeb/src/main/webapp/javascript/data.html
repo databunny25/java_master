@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김유미 교수님 첫번째 시간 dom & jquery</title>
+    <style>
+        .goodsimg {
+            width: 200px;
+            
+        }
+        .goodsborder{
+            border: 3px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="goods">
+        <h1>상품1</h1>
+        <img src="/images/레드향.jpg" class="goodsimg goodsborder" alt="춘식이" style="width:200px">
+        <div>가격:1000</div>
+        <div>
+            <button data-goodno="g1" class="btnOrder" data-price="1000">주문</button>
+        </div>
+        <!-- data 뒤에 변수명, 소문자만 가능 -->
+    </div>
+    <!-- <div class="goods">
+        <h1>상품2</h1>
+        <img src="/images/레드향.jpg" class="goodsimg goodsborder" alt="춘식이" style="width:200px">
+        <div>가격:1000</div>
+        <div>
+            <button data-goodno="g2" class="btnOrder" data-price="2000">주문</button>
+    </div> -->
+    </div>
+    
+    <script>
+        const btnOrders = document.querySelectorAll(".btnOrder");
+        
+        for(let i=0; i<btnOrders.length; i++){
+            // debugger 멈춤
+            btnOrders[i].addEventListener("click", function(){
+            console.log(window.event.target.dataset.goodno);
+        })
+        }
+
+    //     for(btnNode of btnOrders){ //of 이면 Node, in 이면 인덱스!!!
+    //         btnNode.addEventListener("click", function(){
+    //             console.log(window.event.target.dataset.goodno);
+    //         })
+    //     }
+
+    //     btnOrders.forEach( function(node, idx){
+    //         node.addEventListener("click", function(){
+    //             console.log(window.event.target.dataset.goodno);
+    //     })
+    // });
+
+        // btnOrders.forEach( (node, idx) => {
+
+        // });
+        const newNode = `<div class="goods">
+        <h1>상품2</h1>
+        <img src="/images/레드향.jpg" class="goodsimg goodsborder" alt="춘식이" style="width:200px">
+        <div>가격:1000</div>
+        <div>
+            <button data-goodno="g2" class="btnOrder" data-price="2000">주문</button>
+    </div>`
+    </script>
+</body>
+</html>
