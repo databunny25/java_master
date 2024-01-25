@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>domJquery.html</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>10</td>
+            <td>20</td>
+            <td>30</td>
+        </tr>
+    </table>
+    <script>
+        $("td").eq(1).text()
+
+        let total = 0;
+        $("td").each((i,item)=>{
+            //돔 객체
+            //console.log(item.innerHTML);
+            //제이쿼리 객체
+            //console.log($(item).html());
+            total += Number($(item).html()); //parseInt($(item).html())
+        })
+        console.log("total=", total)
+
+
+
+        document.querySelectorAll("td").forEach((item, idx)=>{
+            console.log(item.innerText);
+            if(idx==0)
+                return //함수만 나간다. 나머지 item 함수 모두 실행
+                return false; //forEach 함수는 이거 안 먹는다....every와 some은 이거 먹음!
+        })
+
+        $("td").each((idx, item)=>{
+            console.log(item.innerText);
+            if(idx==0)
+                //return
+                return false; //10만 적고 나간다! 아예 함수 종료!
+        })
+
+
+    </script>
+
+    <!-- -->
+    <input id="txtFruit">
+    <button id="btnAdd">추가</button>
+    <button id="btnDel">삭제</button>
+    <select id="selFruit" size="10">
+        <option>사과
+    </select>
+    <script>
+                        // 타입, 핸들러(리스너)
+        $('#btnAdd').on('click', ()=>{
+            //let op = $("<option>");
+            //op.text($("#txtFruit").val());
+            //$("#selFruit").append(op);
+            $("<option>").text($("#txtFruit").val())
+                         .appendTo($("#selFruit")); //같은 내용 한 줄로 가능! 
+            
+            
+            $("#txtFruit").val("");
+        })
+        
+        $("#txtFruit").on('keypress', ()=>{
+            if(event.keyCode == 13){
+              $("#btnAdd").click();  
+            }
+        })
+
+        $("#btnDel").on('click', ()=>{
+            //$("#selFruit").html("");
+            $('#selFruit').empty(); //위와 같다!
+        })
+
+    </script>
+
+
+</body>
+</html>
